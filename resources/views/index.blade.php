@@ -28,7 +28,7 @@
 <div class="content">
     <div class="left_tab">
         <div class="hd">
-            <ul><li class="first">秘书学简介</li><li class="second">秘书节</li><li class="third">文秘系新闻</li></ul>
+            <ul><li class="first">新闻中心</li><li class="second">产业动态</li><li class="third">学术研讨</li></ul>
         </div>
         <div class="bd">
             <div class="box">
@@ -86,7 +86,7 @@
         </div>
         <!--code-->
         <div class="code">
-            <img src="images/er.jpg" />
+            <img src="{{asset('images/wechatcode.jpg')}}" />
         </div>
     </div>
     <div class="clear"></div>
