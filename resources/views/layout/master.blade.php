@@ -7,6 +7,7 @@
     <meta name="description" content="华西健康"/>
     <title>@yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
+    <link href="{{asset('plugins/bootstrap/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css' />
     @section('custom-style')
     @show
 </head>

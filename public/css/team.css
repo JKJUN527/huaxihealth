@@ -1,0 +1,84 @@
+.team-show {
+    overflow: hidden;
+    min-height: 300px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+.team-show b,em,a,p,i{
+    font-style: normal;
+    font-weight: normal;
+}
+.team-show .show-left {
+    padding-top: 40px;
+}
+.team-show b {
+    display: block;
+    font-size: 24px;
+    color: #b4a38a;
+}
+.team-show em {
+    display: block;
+    font-size: 18px;
+    color: #999999;
+    margin-top: 5px;
+}
+.team-show p {
+    font-size: 16px;
+    margin-top: 30px;
+    line-height: 22px;
+    color: #999999;
+    margin-bottom: 0px;
+}
+.team-show .show-right img {
+    max-width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0px;
+    display: inline-block;
+}
+.team-show .show-close {
+    font-size: 18px;
+    color: #b4a38a;
+    background: url(/images/icon_close.png) no-repeat 0% 50%;
+    padding-left: 25px;
+    position: absolute;
+    left: 40px;
+    bottom: 20%;
+    cursor: pointer;
+}
+
+.team-box li {
+    margin-bottom: 30px;
+}
+.team-list {
+    background: #efefef;
+    padding: 30px 40px;
+}
+.team-list h1 {
+    font-size: 30px;
+    color: #b4a38a;
+    display: inline-block;
+    cursor: pointer;
+}
+.team-list .h1-hover {
+    color: #ff6b00;
+}
+.team-list p {
+    font-size: 16px;
+    color: #333333;
+    margin-top: 10px;
+    line-height: 22px;
+}
+.team-list em {
+    background: url(/images/icon-arr-top01.png) no-repeat;
+    width: 17px;
+    height: 14px;
+    display: block;
+    position: absolute;
+    right: 40px;
+    bottom: 35px;
+    cursor: pointer;
+}
