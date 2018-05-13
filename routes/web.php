@@ -20,3 +20,9 @@ Route::get('/about', function () {
 Route::get('/about/team', function () {
     return view('about.team');
 });
+Route::get('/about/structure', function () {
+    return view('about.structure');
+});
+Route::get('/about/datebook', function () {
+    return view('about.datebook');
+});

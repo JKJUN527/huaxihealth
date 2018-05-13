@@ -20,21 +20,7 @@
             </div>
         </div>
         <div class="c_area">
-            <div class="left_list">
-                <div class="nav_title">关于我们</div>
-                <div class="sidemenu">
-                    <ul>
-                        <li class="active"><a href="/about">公司简介</a></li>
-                        <li><a href="/about/team">团队介绍</a></li>
-                        <li><a href="">组织架构</a></li>
-                        <li><a href="">大事记</a></li>
-                        <li><a href="">发展战略</a></li>
-                    </ul>
-                </div>
-                <div class="contact">
-                    <a href="/contact"><img src="{{asset('images/tel.jpg')}}" /></a>
-                </div>
-            </div>
+            @include('components.aboutTab',['index'=>1])
             <div class="right_content">
                 <div class="con_title">公司简介</div>
                 <div class="con_box">

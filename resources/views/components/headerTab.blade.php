@@ -8,7 +8,7 @@
                     <h3><a href="">首页</a></h3>
                 </li>
                 <li class="nLi">
-                    <h3><a href="">关于我们</a></h3>
+                    <h3><a href="/about">关于我们</a></h3>
                     <ul class="sub">
                         <li><a href="">公司简介</a></li>
                         <li><a href="">团队介绍</a></li>
