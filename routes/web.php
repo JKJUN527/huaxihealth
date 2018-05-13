@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
+/*关于页面*/
 Route::get('/about', function () {
     return view('about.index');
 });
@@ -25,4 +26,14 @@ Route::get('/about/structure', function () {
 });
 Route::get('/about/datebook', function () {
     return view('about.datebook');
+});
+/* 新闻中心*/
+Route::get('/news', function () {
+    return view('news.index');
+});
+Route::get('/news/detail', function () {
+    return view('news.detail');
+});
+Route::get('/news/notes', function () {
+    return view('news.notes');
 });

@@ -1,0 +1,53 @@
+.ny_tdbk {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.ny_dtimbk {
+    height: 140px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: #d2d0d2;
+}
+.ny_dtim {
+    float: left;
+    /*border: 1px solid #d1cdd1;*/
+}
+.ny_dtim img{
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    width: 140px !important;
+    height: 95px !important;
+}
+.ny_dtimrt {
+    float: right;
+    width: 630px;
+    height: 94px;
+    position: relative;
+}
+.ny_dtimtt {
+    line-height: 22px;
+    padding-right: 6px;
+}
+.ny_dtimtt a {
+    color: #1f1c1f;
+    font-weight: 800;
+}
+.ny_dtimtt a:hover{
+    color: #267bb1;
+}
+.ny_dtimjj {
+    line-height: 24px;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0px;
+}
+.ny_dtimjj a {
+    color: #e0833e;
+    float: right;
+    padding-right: 6px;
+}

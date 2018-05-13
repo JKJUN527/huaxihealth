@@ -18,7 +18,7 @@
                     </ul>
                 </li>
                 <li class="nLi">
-                    <h3><a href="">新闻中心</a></h3>
+                    <h3><a href="/news">新闻中心</a></h3>
                     <ul class="sub">
                         <li><a href="">公司要闻</a></li>
                         <li><a href="">公示公告</a></li>
