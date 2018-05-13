@@ -51,3 +51,28 @@
     float: right;
     padding-right: 6px;
 }
+
+.ny_jlxqt {
+    line-height: 55px;
+    height: 55px;
+    font-family: "微软雅黑";
+    font-size: 1.8rem;
+    color: #267bb1;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #cccacc;
+}
+.ny_jlxqxt {
+    line-height: 34px;
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: #cfcdcf;
+}
+.ny_jlxqxt font {
+    color: #e0833e;
+}
+.ny_jlxqjj p{
+    line-height: 24px;
+    font-size: 1.3rem;
+    color: #635e63;
+}
