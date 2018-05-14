@@ -37,3 +37,23 @@ Route::get('/news/detail', function () {
 Route::get('/news/notes', function () {
     return view('news.notes');
 });
+//科技研发
+Route::get('/technology', function () {
+    return view('technology.index');
+});
+Route::get('/technology/team', function () {
+    return view('technology.team');
+});
+Route::get('/technology/team/detail', function () {
+    return view('technology.teamDetail');
+});
+Route::get('/technology/achievements', function () {
+    return view('technology.achievement');
+});
+Route::get('/technology/achievements/detail', function () {
+    return view('technology.achievementDetail');
+});
+//产业服务
+Route::get('/industry', function () {
+    return view('industry.index');
+});
