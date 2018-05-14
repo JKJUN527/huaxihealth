@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', '产业服务|成都华西精准医学产业技术研究院')
+@section('title', '合作交流|成都华西精准医学产业技术研究院')
 
 @section('header-nav')
     @include('components.headerNav')
@@ -16,13 +16,13 @@
     <div class="i_content">
         <div class="adr_wrap">
             <div class="adr">
-                <span class="adr_link"><a href="/">首   页</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<a href="/industry">产业服务</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;产业动态</span>
+                <span class="adr_link"><a href="/">首   页</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<a href="/cooperation">合作交流</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;学术研讨</span>
             </div>
         </div>
         <div class="c_area">
-            @include('components.industryTab',['index'=>1])
+            @include('components.cooperationTab',['index'=>1])
             <div class="right_content">
-                <div class="con_title">产业动态</div>
+                <div class="con_title">学术研讨</div>
                 <div class="con_box">
                     <div class="ny_tdbk">
                         <div class="ny_dtimbk">

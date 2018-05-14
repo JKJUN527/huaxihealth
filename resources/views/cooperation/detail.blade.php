@@ -16,7 +16,7 @@
     <div class="i_content">
         <div class="adr_wrap">
             <div class="adr">
-                <span class="adr_link"><a href="/">首   页</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<a href="/industry">产业服务</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;产业动态</span>
+                <span class="adr_link"><a href="/">首   页</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<a href="/news">产业服务</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;产业动态</span>
             </div>
         </div>
         <div class="c_area">

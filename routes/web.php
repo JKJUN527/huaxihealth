@@ -57,3 +57,13 @@ Route::get('/technology/achievements/detail', function () {
 Route::get('/industry', function () {
     return view('industry.index');
 });
+Route::get('/industry/detail', function () {
+    return view('industry.detail');
+});
+//合作交流
+Route::get('/cooperation', function () {
+    return view('cooperation.index');
+});
+Route::get('/cooperation/detail', function () {
+    return view('cooperation.detail');
+});

@@ -42,10 +42,10 @@
                     </ul>
                 </li>
                 <li class="nLi">
-                    <h3><a href="">合作交流</a></h3>
+                    <h3><a href="/cooperation">合作交流</a></h3>
                     <ul class="sub">
-                        <li><a href="">学术研讨</a></li>
-                        <li><a href="">对外合作</a></li>
+                        <li><a href="/cooperation">学术研讨</a></li>
+                        <li><a href="/cooperation/out">对外合作</a></li>
                     </ul>
                 </li>
                 <li class="nLi">
