@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-05-12 11:22:21
+Date: 2018-05-16 23:54:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,7 @@ CREATE TABLE `huaxi_admin` (
 -- ----------------------------
 -- Records of huaxi_admin
 -- ----------------------------
-INSERT INTO `huaxi_admin` VALUES ('1', '1', 'admin', '$2y$10$Mk4BtG4FAbEdkDxwqFkEhOTLzMHLNzi/Cmg.hzhWR8INm8JWxBEgq', null, '2017-12-17 15:33:07', '2018-05-06 14:23:28', '2018-05-06 14:23:28');
+INSERT INTO `huaxi_admin` VALUES ('1', '1', 'admin', '$2y$10$Mk4BtG4FAbEdkDxwqFkEhOTLzMHLNzi/Cmg.hzhWR8INm8JWxBEgq', null, '2017-12-17 15:33:07', '2018-05-16 13:57:51', '2018-05-16 13:57:51');
 INSERT INTO `huaxi_admin` VALUES ('3', null, 'jkjun', '$2y$10$ZJgCpSCmx2gzQcXaTB34Ue.OiwttCMvaYGeKP9CDxTnwsuuvULJqW', null, '2017-12-17 16:01:08', '2017-12-28 21:38:55', '2017-12-28 21:38:55');
 INSERT INTO `huaxi_admin` VALUES ('4', null, 'admin001', '$2y$10$dpEljg1cGCYBErXUDWqjve3XJ7hEFtFuPsa0lZXRaFvgoK/7i2J2y', null, '2018-04-06 23:13:33', '2018-05-03 22:15:12', '2018-05-03 22:15:12');
 
@@ -155,10 +155,10 @@ CREATE TABLE `huaxi_hatch` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `huaxi_industrial`
+-- Table structure for `huaxi_industry`
 -- ----------------------------
-DROP TABLE IF EXISTS `huaxi_industrial`;
-CREATE TABLE `huaxi_industrial` (
+DROP TABLE IF EXISTS `huaxi_industry`;
+CREATE TABLE `huaxi_industry` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '产业动态',
   `title` varchar(200) DEFAULT NULL,
   `content` longtext COMMENT '动态内容',
@@ -170,7 +170,7 @@ CREATE TABLE `huaxi_industrial` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of huaxi_industrial
+-- Records of huaxi_industry
 -- ----------------------------
 
 -- ----------------------------
@@ -248,6 +248,25 @@ CREATE TABLE `huaxi_recruit` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `huaxi_team`
+-- ----------------------------
+DROP TABLE IF EXISTS `huaxi_team`;
+CREATE TABLE `huaxi_team` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL COMMENT '姓名',
+  `byname` varchar(100) DEFAULT NULL COMMENT '头衔',
+  `brief` varchar(1000) DEFAULT NULL COMMENT '个人简介',
+  `type` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of huaxi_team
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `huaxi_webinfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `huaxi_webinfo`;
@@ -265,8 +284,9 @@ CREATE TABLE `huaxi_webinfo` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of huaxi_webinfo
 -- ----------------------------
+INSERT INTO `huaxi_webinfo` VALUES ('1', null, null, '1、沙发士大夫<br>2、噶水电费&nbsp;&nbsp;&nbsp;胜多负少', null, '17302813643', '3456789', 'test@qq.com', '653002', 'testaddress', '2018-05-16 22:08:29', '2018-05-16 14:15:03');
