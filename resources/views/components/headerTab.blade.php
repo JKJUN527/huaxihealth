@@ -49,10 +49,10 @@
                     </ul>
                 </li>
                 <li class="nLi">
-                    <h3><a href="">联系我们</a></h3>
+                    <h3><a href="/contact">联系我们</a></h3>
                     <ul class="sub">
-                        <li><a href="">人才招聘</a></li>
-                        <li><a href="">联系方式</a></li>
+                        <li><a href="/contact">人才招聘</a></li>
+                        <li><a href="/contact/form">联系方式</a></li>
                     </ul>
                 </li>
             </ul>
