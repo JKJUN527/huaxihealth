@@ -54,6 +54,11 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        /*个人头像、企业logo*/
+        'profile' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/profiles'),
+        ],
 
         's3' => [
             'driver' => 's3',

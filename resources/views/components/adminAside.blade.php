@@ -27,6 +27,46 @@
                     </a>
                 </li>
                 <li
+                        @if($title === 'aboutus')
+                        class="active"
+                        @endif
+                >
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">subject</i>
+                        <span>关于我们</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li
+                                @if($subtitle === 'ourteam')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/about/team">团队介绍</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'structure')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/structure">组织架构</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'datebook')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/datebook">大事记</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'development ')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/development ">发展战略</a>
+                        </li>
+                    </ul>
+                </li>
+                <li
                         @if($title === 'region')
                         class="active"
                         @endif

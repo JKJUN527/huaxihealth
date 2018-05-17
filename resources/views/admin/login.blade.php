@@ -89,7 +89,7 @@
             return false;
         }
         $.ajax({
-            url: "admin/login",
+            url: "/admin/login",
             type: "post",
             dataType: 'text',
             data: serializedData,
