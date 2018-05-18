@@ -30,7 +30,7 @@
                             <em>党组书记、董事长</em>
                             <p>
                             </p><p>
-                                毕业于中央党校研究生院。历任包头市郊区副区长、副书记、区长、包头市副市长，包头市委常委、副市长，哲里木盟盟委副书记、盟长，通辽市委副书记、市长，通辽市委书记，内蒙古自治区副主席，中国储备粮管理总公司董事长、党组书记。2016年加入中粮集团。</p>
+                                毕业于中央党校研究生院。历任包头市郊区副区长、副书记、区长、包头市副市长，包头市委常委、副市长，哲里木盟盟委副书记、盟长，通辽市委、党组书记。2016年加入中粮集团。</p>
 
                             <p></p>
                         </div>
@@ -158,66 +158,66 @@
                         <i class="show-close">关闭</i>
                     </div>
                     <ul class="row team-box">
-                        <li class="col-md-6 col-sm-6 col-xs-12">
+                        <li class="col-md-4 col-sm-4 col-xs-6">
                             <div class="team-list">
                                 <h1 class="h1-hover">赵双连</h1>
                                 <p>党组书记、董事长</p>
                                 <em class=""><!--这里是箭头哦--></em>
                             </div>
                         </li>
-                        <li class="col-md-6 col-sm-6 col-xs-12">
+                        <li class="col-md-4 col-sm-4 col-xs-6">
                             <div class="team-list">
                                 <h1 class="">于旭波</h1>
                                 <p>党组副书记、董事、总裁</p>
                                 <em class=""><!--这里是箭头哦--></em>
                             </div>
                         </li>
-                        <li class="col-md-6 col-sm-6 col-xs-12">
+                        <li class="col-md-4 col-sm-4 col-xs-6">
                             <div class="team-list">
                                 <h1 class="">万早田</h1>
                                 <p>党组副书记、副总裁</p>
                                 <em class=""><!--这里是箭头哦--></em>
                             </div>
                         </li>
-                        <li class="col-md-6 col-sm-6 col-xs-12">
+                        <li class="col-md-4 col-sm-4 col-xs-6">
                             <div class="team-list">
                                 <h1 class="">迟京涛</h1>
                                 <p>党组成员、常务副总裁</p>
                                 <em class=""><!--这里是箭头哦--></em>
                             </div>
                         </li>
-                        <li class="col-md-6 col-sm-6 col-xs-12">
+                        <li class="col-md-4 col-sm-4 col-xs-6">
                             <div class="team-list">
                                 <h1 class="">马建平</h1>
                                 <p>党组成员、副总裁</p>
                                 <em class=""><!--这里是箭头哦--></em>
                             </div>
                         </li>
-                        <li class="col-md-6 col-sm-6 col-xs-12">
+                        <li class="col-md-4 col-sm-4 col-xs-6">
                             <div class="team-list">
                                 <h1 class="">栾日成</h1>
                                 <p>党组成员、副总裁</p>
                                 <em class=""><!--这里是箭头哦--></em>
                             </div>
                         </li>
-                        <li class="col-md-6 col-sm-6 col-xs-12">
+                        <li class="col-md-4 col-sm-4 col-xs-6">
                             <div class="team-list">
                                 <h1 class="">马王军</h1>
                                 <p>党组成员、总会计师</p>
                                 <em class=""><!--这里是箭头哦--></em>
                             </div>
                         </li>
-                        <li class="col-md-6 col-sm-6 col-xs-12">
+                        <li class="col-md-4 col-sm-4 col-xs-6">
                             <div class="team-list">
                                 <h1 class="h1-hover">周政</h1>
                                 <p>党组成员、副总裁</p>
                                 <em class="em-hover"><!--这里是箭头哦--></em>
                             </div>
                         </li>
-                        <li class="col-md-6 col-sm-6 col-xs-12">
+                        <li class="col-md-4 col-sm-4 col-xs-6">
                             <div class="team-list nohover">
                                 <h1 class="">袁久强</h1>
-                                <p>党组成员、党组纪检组组长</p>
+                                <p>党组纪检组组长</p>
                                 <em class=""><!--这里是箭头哦--></em>
                             </div>
                         </li>

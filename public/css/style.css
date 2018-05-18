@@ -36,13 +36,16 @@ ul,li{
 	background: #fff; height: 95px; font-size: 16px;
 }
 .header .logo{
-	float: left; margin-top: 0px; width: 357px;
+	float: left; margin-top: 0px; 
+	//width: 20%;
 }
 .logo img{
 	height: 85px;
+//	width:100%;
 }
 .header .nav_list{
 	float: right;
+	//width: 80%;
 }
 /*--------navList效果----------*/
 .clearfix:after{
@@ -58,7 +61,7 @@ ul,li{
 	float:left;
 }*/
 .nav .nLi h3 a{ 
-	display: block; line-height: 93px; padding: 0 32px; font-size: 16px; font-weight: 500; color: #333;
+	display: block; line-height: 93px; padding: 0 18%; font-size: 16px; font-weight: 500; color: #333;
 }
 .nav .sub{ 
 	display: none; width: 170px; left: 0; top: 95px;  position: absolute; background: #267bb1;
