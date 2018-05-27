@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Validator;
 class AdminController extends Controller {
     public function view() {
         $uid = AdminAuthController::getUid();
-        if ($uid == 0)
-            return view('admin.login');
+ 	//if ($uid == 0)
+         //   return view('admin.login');
 
         $data = DashboardController::getLoginInfo();
         $data['admins'] = $this->getAdminList();

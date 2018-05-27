@@ -55,7 +55,7 @@
 }
 .team-list {
     background: #efefef;
-    padding: 30px 40px;
+    padding: 10px 20px;
 }
 .team-list h1 {
     font-size: 30px;
@@ -78,7 +78,7 @@
     height: 14px;
     display: block;
     position: absolute;
-    right: 40px;
-    bottom: 35px;
+    right: 25px;
+    bottom: 8px;
     cursor: pointer;
 }
