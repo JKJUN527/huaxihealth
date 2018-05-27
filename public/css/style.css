@@ -16,9 +16,10 @@ ul,li{
 /*--------top样式----------*/
 .top_wrap{
 	width: 100%; height: 36px; line-height: 36px; background: #267bb1; color: #ecf5f9;
+	text-align: center;
 }
 .top, .header, .footer{
-	width: 95%; margin: 0 auto;
+	width: 80%; margin: 0 auto;
 }
 .top .welcome{
 	float: left;
@@ -52,28 +53,39 @@ ul,li{
 	position: relative; z-index: 1;
 }
 .nav .nLi{ 
-	float: left; position: relative; display: inline;
+	/*float: left; */
+	position: relative;
+	display: inline-block;
 }
 /*.nav .nLi h3{ 
 	float:left;
 }*/
 .nav .nLi h3 a{ 
-	display: block; line-height: 93px; padding: 0 32px; font-size: 16px; font-weight: 500; color: #333;
+	display: block; line-height: 36px;
+	padding: 0 32px;
+	font-size: 16px; font-weight: 500; color: #fff;
 }
 .nav .sub{ 
-	display: none; width: 170px; left: 0; top: 95px;  position: absolute; background: #267bb1;
+	display: none;
+	width: 128px;
+	text-align: center;
+	left: 0; top: 36px;  position: absolute; background: #267bb1;
 }
 .nav .sub li{ 
 	zoom:1; border-bottom: solid 1px #0c3784; border-top: solid 1px #114ebc;
 }
 .nav .sub a{ 
-	display: block; padding-left: 32px; width: 138px; height: 50px; line-height: 50px; color: #ecf5f9; font-size: 13px;
+	display: block;
+	/*padding-left: 32px;*/
+	/*width: 138px; height: 50px; line-height: 50px; */
+	color: #ecf5f9; font-size: 13px;
 }
 .nav .sub a:hover{ 
 	color: #fecc01;
 }
 .nav .on h3 a{ 
-	background: #267bb1; color: #ecf5f9; border-top: solid 2px #fdd01c;
+	background: #267bb1; color: #ecf5f9;
+	/*border-top: solid 2px #fdd01c;*/
 }
 
 /*--------banner效果----------*/
@@ -241,7 +253,9 @@ ul,li{
 	width: 100%;
 }
 .adr_wrap{
-	width: 100%; line-height: 36px; border-top: solid 4px #04538b; background: #fff; color: #999; font-size: 14px; border-bottom: 1px solid #ebebeb; box-shadow: 1px 1px 2px #ebebeb;
+	width: 100%; line-height: 36px;
+	/*border-top: solid 4px #04538b; */
+	background: #fff; color: #999; font-size: 14px; border-bottom: 1px solid #ebebeb; box-shadow: 1px 1px 2px #ebebeb;
 }
 .adr_wrap .adr{
 	width: 1100px; margin: 0 auto;

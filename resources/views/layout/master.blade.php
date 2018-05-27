@@ -13,10 +13,11 @@
 </head>
 <body>
 <!--header-->
-@section('header-nav')
-@show
 <!--logo and nav-->
 @section('header-tab')
+@show
+
+@section('header-nav')
 @show
 <!--banner-->
 @section('content')
