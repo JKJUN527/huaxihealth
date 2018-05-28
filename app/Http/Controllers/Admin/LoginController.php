@@ -13,9 +13,7 @@ use App\About;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Helper\Table;
 use Auth;
-use App\Admininfo;
 use Illuminate\Http\Request;
-use App\User;
 use App\Http\Controllers\InfoController;
 use Illuminate\Support\Facades\Session;
 use Hash;
@@ -53,6 +51,7 @@ class LoginController extends Controller
                 {
                     $data['status'] = 200;
                     $data['msg'] = '登录成功';
+                    $data['session'] = session()->all();
                 }else{
                     $data['status'] = 400;
                     $data['msg'] = '数据库更新失败';
