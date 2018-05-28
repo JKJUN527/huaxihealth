@@ -34,13 +34,13 @@ ul,li{
 	display: inline-block; margin: 0 15px;
 }
 .header_wrap{
-	background: #fff; height: 95px; font-size: 16px;
+	background: #fff; height: 75px; font-size: 16px;
 }
 .header .logo{
 	float: left; margin-top: 0px; width: 357px;
 }
 .logo img{
-	height: 85px;
+	height: 75px;
 }
 .header .nav_list{
 	float: right;
