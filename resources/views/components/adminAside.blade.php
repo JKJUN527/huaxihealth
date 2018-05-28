@@ -62,7 +62,7 @@
                                 class="active"
                                 @endif
                         >
-                            <a href="/admin/development ">发展战略</a>
+                            <a href="/admin/about/development ">发展战略</a>
                         </li>
                     </ul>
                 </li>

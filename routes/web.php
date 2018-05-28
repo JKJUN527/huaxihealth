@@ -115,7 +115,9 @@ Route::get('admin/about/addDatebook', ['uses' => 'Admin\AboutController@datebook
 Route::post('admin/about/datebook/add', ['uses' => 'Admin\AboutController@datebookAdd']);//大事记新增提交方法
 Route::get('admin/about/datebook/detail', ['uses' => 'Admin\AboutController@datebookDetail']);//大事记详情返回
 Route::get('admin/about/datebook/del', ['uses' => 'Admin\AboutController@datebookDel']);//大事记删除
-
+Route::get('admin/about/development', ['uses' => 'Admin\AboutController@strategyIndex']);//发展战略页面
+Route::get('admin/about/addStrategy',['uses' => 'Admin\AboutController@addStrategyIndex']);//编辑发展战略页面
+Route::post('admin/about/development/add', ['uses' => 'Admin\AboutController@strategyAdd']);//发送数据发展战略页面
 
 Route::any('admin/region', ['uses' => 'Admin\RegionController@index']);//显示产品分类
 Route::any('admin/region/{option}', ['uses' => 'Admin\RegionController@edit'])->where('option', '[A-Za-z]+');//操作产品分类

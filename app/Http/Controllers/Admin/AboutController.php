@@ -220,6 +220,90 @@ class AboutController extends Controller {
         }
         return $data;
     }
+    public function strategyIndex(){
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0)
+            return view('admin.login');
+
+        $data = DashboardController::getLoginInfo();
+        $data['webinfo'] = About::first();
+        if($data['webinfo']->strategy_picture != null){
+            $images = $data['webinfo']->strategy_picture;
+            $imageTemp = explode(';',$images);
+            $imagesArray = [];
+            $i=0;
+            foreach ($imageTemp as $item){
+                if(strlen($item) <=0)
+                    break;
+                $imagesArray[$i++] = explode('@',$item);
+            }
+            $baseurl = substr($imagesArray[0][0],0,strlen($imagesArray[0][0])-1);
+            $imagesArray[0][0] = str_replace($baseurl,'',$imagesArray[0][0]);
+            foreach ($imagesArray as $item){
+                $search = "[图片".$item[0]."]";
+                $replace = "<div class='news-image'><img src='".$baseurl.$item[1]."'/></div>";
+                $data['webinfo']->strategy_content = str_replace($search,$replace,$data['webinfo']->strategy_content);
+            }
+        }
+//        return $data['webinfo']->strategy_content;
+        return view('admin.strategy', ['data' => $data]);
+    }
+    public function addStrategyIndex(){
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0)
+            return view('admin.login');
+
+        $data = DashboardController::getLoginInfo();
+//        $data['datebook'] = Datebook::orderBy('updated_at', 'desc')
+//            ->paginate(10);
+        //return $data;
+        return view('admin.addStrategy', ['data' => $data]);
+    }
+    public function strategyAdd(Request $request){
+        $data = array();
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0) {
+            return redirect('admin/login');
+        }
+        $webinfo = About::first();
+
+        //接收参数
+        $picture = $request->input('pictureIndex');
+        if($picture != ""){
+            $pictures = explode('@', $picture);
+            $picfilepath = "";
+            foreach ($pictures as $Item) {//对每一个照片进行操作。
+                $pic = $request->file('pic' . $Item);//取得上传文件信息
+                if ($pic->isValid()) {//判断文件是否上传成功
+                    //取得原文件名
+                    $originalName1 = $pic->getClientOriginalName();
+                    //扩展名
+                    $ext1 = $pic->getClientOriginalExtension();
+                    //mimetype
+                    $type1 = $pic->getClientMimeType();
+                    //临时觉得路径
+                    $realPath = $pic->getRealPath();
+                    //生成文件名
+                    $picname = date('Y-m-d-H-i-s') . '-' . uniqid() . 'about' . $Item . '.' . $ext1;
+
+                    $picfilepath = $picfilepath . $Item . '@' . $picname . ';';
+                    $bool = Storage::disk('about')->put($picname, file_get_contents($realPath));
+                }
+            }
+            $webinfo->strategy_picture = asset('storage/about/' . $picfilepath);
+        }
+        //保存都数据库
+        $webinfo->strategy_content = $request->input('content');
+        if ($webinfo->save()) {
+            $data['status'] = 200;
+            $data['msg'] = "操作成功";
+            return $data;
+        } else {
+            $data['status'] = 400;
+            $data['msg'] = "操作失败";
+            return $data;
+        }
+    }
 
 
     //发布广告、以及修改广告

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\About;
 use App\Admin;
 use App\Http\Controllers\Controller;
-use App\User;
 
 class DashboardController extends Controller {
     public function view() {

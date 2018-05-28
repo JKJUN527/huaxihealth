@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers\admin;
 use App\Admin;
-use App\Admininfo;
 use App\Http\Controllers\Controller;
 
 class AdminAuthController extends Controller

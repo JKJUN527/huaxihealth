@@ -1,5 +1,5 @@
 @extends('layout.admin')
-@section('title', '大事记')
+@section('title', '发展战略')
 
 @section('custom-style')
     <style>
@@ -21,7 +21,7 @@
 @endsection
 
 @section('sidebar')
-    @include('components.adminAside', ['title' => 'aboutus', 'subtitle'=>'datebook', 'username' => $data['username']])
+    @include('components.adminAside', ['title' => 'aboutus', 'subtitle'=>'development', 'username' => $data['username']])
 @endsection
 
 @section('content')
@@ -30,7 +30,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        大事记列表
+                        发展战略
                     </h2>
                     <div class="mdl-card__menu">
 
@@ -41,44 +41,17 @@
                         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                             for="demo-menu-lower-right">
                             <li class="mdl-menu__item">
-                                <a href="/admin/about/addDatebook">添加大事记</a>
+                                <a href="/admin/about/addStrategy">重新编辑发展战略</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="body table-responsive">
-                    <table class="table table-striped" id="cu-admin-table">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>标题</th>
-                            <th>内容</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @forelse($data['datebook'] as $datebook)
-                            <tr>
-                                <td>{{$datebook->id}}</td>
-                                <td>{{$datebook->title}}</td>
-                                <td>{{mb_substr($datebook->content, 0, 60,'utf-8')}}...</td>
-                                <td>
-                                    <i class="material-icons detail" data-content="{{$datebook->id}}"
-                                       data-toggle='modal' data-target='#detailNewsModal'>visibility</i>
-                                    <i class="material-icons delete" data-content="{{$datebook->id}}"
-                                       style="margin-left: 16px;">delete</i>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="4">暂无大事记</td>
-                            </tr>
-                        @endforelse
-                        </tbody>
-                    </table>
-                    <nav>
-                        {!! $data['datebook']->render() !!}
-                    </nav>
+                    <div class="modal-body">
+                        <div class="news-content">
+                            {!! $data['webinfo']->strategy_content !!}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
