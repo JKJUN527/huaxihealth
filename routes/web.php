@@ -108,6 +108,13 @@ Route::any('admin/about/setadvantage', ['uses' => 'Admin\WebinfoController@setad
 Route::get('admin/about/team', ['uses' => 'Admin\AboutController@index']);//显示团队介绍
 Route::post('admin/about/team/add', ['uses' => 'Admin\AboutController@teamAdd']);//新增团队介绍
 Route::get('admin/about/team/delete', ['uses' => 'Admin\AboutController@teamDel']);//删除团队介绍
+Route::get('admin/about/structure', ['uses' => 'Admin\AboutController@structureIndex']);//组织架构页面
+Route::post('admin/about/structure/add', ['uses' => 'Admin\AboutController@structureAdd']);//上传组织架构图
+Route::get('admin/about/datebook', ['uses' => 'Admin\AboutController@datebookIndex']);//大事记列表页面
+Route::get('admin/about/addDatebook', ['uses' => 'Admin\AboutController@datebookAddIndex']);//大事记新增页面
+Route::post('admin/about/datebook/add', ['uses' => 'Admin\AboutController@datebookAdd']);//大事记新增提交方法
+Route::get('admin/about/datebook/detail', ['uses' => 'Admin\AboutController@datebookDetail']);//大事记详情返回
+Route::get('admin/about/datebook/del', ['uses' => 'Admin\AboutController@datebookDel']);//大事记删除
 
 
 Route::any('admin/region', ['uses' => 'Admin\RegionController@index']);//显示产品分类

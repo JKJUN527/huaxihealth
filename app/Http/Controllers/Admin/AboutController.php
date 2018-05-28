@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\About;
+use App\Datebook;
 use App\Http\Controllers\Controller;
 use App\Team;
 use Illuminate\Http\Request;
@@ -77,7 +78,148 @@ class AboutController extends Controller {
         }
         return $data;
     }
+    public function structureIndex(){
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0)
+            return view('admin.login');
 
+        $data = DashboardController::getLoginInfo();
+        $data['webinfo'] = About::first();
+        //return $data;
+        return view('admin.structure', ['data' => $data]);
+    }
+    public function structureAdd(Request $request){
+        $data = array();
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0) {
+            return redirect('admin/login');
+        }
+        $webinfo = About::first();
+        if($request->hasFile('picture')) {
+            $adpic = $request->file('picture');//取得上传文件信息
+            if ($adpic->isValid()) {//判断文件是否上传成功
+                //扩展名
+                $ext = $adpic->getClientOriginalExtension();
+                //临时觉得路径
+                $realPath = $adpic->getRealPath();
+                //生成文件名
+                $picname = date('Y-m-d-H-i-s') . '-' . uniqid() . 'about' . '.' . $ext;
+
+                $bool = Storage::disk('about')->put($picname, file_get_contents($realPath));
+
+                $webinfo->structure = asset('storage/about/' . $picname);
+            }
+        }
+        if($webinfo->save()){
+            $data['status'] = 200;
+            $data['msg'] = "新增成功";
+        }else{
+            $data['status'] = 400;
+            $data['msg'] = "新增失败";
+        }
+        return $data;
+    }
+    public function datebookIndex(){
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0)
+            return view('admin.login');
+
+        $data = DashboardController::getLoginInfo();
+        $data['datebook'] = Datebook::orderBy('updated_at', 'desc')
+            ->paginate(10);
+        //return $data;
+        return view('admin.datebook', ['data' => $data]);
+    }
+    public function datebookAddIndex(){
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0)
+            return view('admin.login');
+
+        $data = DashboardController::getLoginInfo();
+//        $data['datebook'] = Datebook::orderBy('updated_at', 'desc')
+//            ->paginate(10);
+        //return $data;
+        return view('admin.addDatebook', ['data' => $data]);
+    }
+    public function datebookAdd(Request $request){
+        $data = array();
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0) {
+            return redirect('admin/login');
+        }
+        $datebook = new Datebook();
+
+        //接收参数
+        $picture = $request->input('pictureIndex');
+        if($picture != ""){
+            $pictures = explode('@', $picture);
+            $picfilepath = "";
+            foreach ($pictures as $Item) {//对每一个照片进行操作。
+                $pic = $request->file('pic' . $Item);//取得上传文件信息
+                if ($pic->isValid()) {//判断文件是否上传成功
+                    //取得原文件名
+                    $originalName1 = $pic->getClientOriginalName();
+                    //扩展名
+                    $ext1 = $pic->getClientOriginalExtension();
+                    //mimetype
+                    $type1 = $pic->getClientMimeType();
+                    //临时觉得路径
+                    $realPath = $pic->getRealPath();
+                    //生成文件名
+                    $picname = date('Y-m-d-H-i-s') . '-' . uniqid() . 'datebook' . $Item . '.' . $ext1;
+
+                    $picfilepath = $picfilepath . $Item . '@' . $picname . ';';
+                    $bool = Storage::disk('datebook')->put($picname, file_get_contents($realPath));
+                }
+            }
+            $datebook->picture = asset('storage/datebook/' . $picfilepath);
+        }
+        //保存都数据库
+        $datebook->title = $request->input('title');
+        $datebook->content = $request->input('content');
+        if ($datebook->save()) {
+            $data['status'] = 200;
+            $data['msg'] = "操作成功";
+            return $data;
+        } else {
+            $data['status'] = 400;
+            $data['msg'] = "操作失败";
+            return $data;
+        }
+    }
+    //根据新闻id 返回每个具体的新闻详情
+    public function datebookDetail(Request $request) {
+        $data = array();
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0) {
+            return redirect('admin/login');
+        }
+        if ($request->has('id')) {
+            $id = $request->input('id');
+        } else
+            $id = 1;
+        $data['datebook'] = Datebook::find($id);
+
+        return $data;
+    }
+    function datebookDel(Request $request) {
+        $data = array();
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0) {
+            return redirect('admin/login');
+        }
+
+        if ($request->has('id')) {
+            $nid = $request->input('id');
+            Datebook::where('id', '=', $nid)
+                ->delete();
+            $data['status'] = 200;
+        } else {
+            $data['status'] = 200;
+            $data['msg'] = "删除失败";
+        }
+        return $data;
+    }
 
 
     //发布广告、以及修改广告

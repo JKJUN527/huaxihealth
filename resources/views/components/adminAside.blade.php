@@ -48,14 +48,14 @@
                                 class="active"
                                 @endif
                         >
-                            <a href="/admin/structure">组织架构</a>
+                            <a href="/admin/about/structure">组织架构</a>
                         </li>
                         <li
                                 @if($subtitle === 'datebook')
                                 class="active"
                                 @endif
                         >
-                            <a href="/admin/datebook">大事记</a>
+                            <a href="/admin/about/datebook">大事记</a>
                         </li>
                         <li
                                 @if($subtitle === 'development ')

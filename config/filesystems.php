@@ -59,6 +59,16 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/profiles'),
         ],
+        /*about页面图片*/
+        'about' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/about'),
+        ],
+        /*大事记页面图片*/
+        'datebook' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/datebook'),
+        ],
 
         's3' => [
             'driver' => 's3',

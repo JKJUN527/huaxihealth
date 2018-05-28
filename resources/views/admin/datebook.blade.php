@@ -1,5 +1,5 @@
 @extends('layout.admin')
-@section('title', '临时简历列表')
+@section('title', '大事记')
 
 @section('custom-style')
     <style>
@@ -21,7 +21,7 @@
 @endsection
 
 @section('sidebar')
-    @include('components.adminAside', ['title' => 'resume', 'subtitle'=>'resumeList', 'username' => $data['username']])
+    @include('components.adminAside', ['title' => 'aboutus', 'subtitle'=>'datebook', 'username' => $data['username']])
 @endsection
 
 @section('content')
@@ -30,7 +30,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        简历列表
+                        大事记列表
                     </h2>
                     <div class="mdl-card__menu">
 
@@ -41,7 +41,7 @@
                         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                             for="demo-menu-lower-right">
                             <li class="mdl-menu__item">
-                                <a href="/admin/addresume">添加简历</a>
+                                <a href="/admin/about/addDatebook">添加大事记</a>
                             </li>
                         </ul>
                     </div>
@@ -50,38 +50,34 @@
                     <table class="table table-striped" id="cu-admin-table">
                         <thead>
                         <tr>
-                            <th>临时用户ID</th>
-                            <th>用户名</th>
-                            <th>登录邮箱</th>
-                            <th>真实姓名</th>
-                            <th>简历标题</th>
+                            <th>ID</th>
+                            <th>标题</th>
+                            <th>内容</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @forelse($data['tempresumes'] as $resume)
+                        @forelse($data['datebook'] as $datebook)
                             <tr>
-                                <td>{{$resume->uid}}</td>
-                                <td>{{$resume->username}}</td>
-                                <td>{{$resume->mail}}</td>
-                                <td>{{$resume->pname}}</td>
-                                <td>{{$resume->resume_name}}...</td>
+                                <td>{{$datebook->id}}</td>
+                                <td>{{$datebook->title}}</td>
+                                <td>{{mb_substr($datebook->content, 0, 60,'utf-8')}}...</td>
                                 <td>
-                                    {{--<i class="material-icons detail" data-content="{{$news->nid}}"--}}
-                                       {{--data-toggle='modal' data-target='#detailNewsModal'>visibility</i>--}}
-                                    <i class="material-icons delete" data-content="{{$resume->uid}}"
+                                    <i class="material-icons detail" data-content="{{$datebook->id}}"
+                                       data-toggle='modal' data-target='#detailNewsModal'>visibility</i>
+                                    <i class="material-icons delete" data-content="{{$datebook->id}}"
                                        style="margin-left: 16px;">delete</i>
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3">暂无简历</td>
+                                <td colspan="4">暂无大事记</td>
                             </tr>
                         @endforelse
                         </tbody>
                     </table>
                     <nav>
-                        {!! $data['tempresumes']->render() !!}
+                        {!! $data['datebook']->render() !!}
                     </nav>
                 </div>
             </div>
@@ -113,12 +109,51 @@
 @section('custom-script')
     <script type="text/javascript">
 
+        $(".detail").click(function () {
+            var element = $(this);
+            var id = element.attr("data-content");
+
+            $.ajax({
+                url: "/admin/about/datebook/detail?id=" + id,
+                type: "get",
+                success: function (data) {
+                    var datebook = data['datebook'];
+
+                    $("#defaultModalLabel").html(datebook['title']);
+                    $(".news-time").html(datebook['created_at']);
+
+                    var content = datebook['content'];
+                    var images = datebook['picture'];
+                    var imageTemp = images.split(";");
+                    var imagesArray = [];
+
+                    for (var i in imageTemp) {
+                        imagesArray[i + ''] = imageTemp[i + ''].split("@");
+                    }
+
+                    var baseUrl = imagesArray[0][0].substring(0, imagesArray[0][0].length - 1);
+                    imagesArray[0][0] = imagesArray[0][0].replace(baseUrl, '');
+
+                    console.log(imagesArray);
+                    console.log(baseUrl);
+                    console.log();
+
+                    for (var j = 0; j < imagesArray.length; j++) {
+                        content = content.replace("[图片" + imagesArray[j][0] + "]", "<img src='" + baseUrl + imagesArray[j][1] + "' width='100%'/>");
+                    }
+
+                    $(".news-content").html(content);
+                }
+            });
+        });
+
+
         $(".delete").click(function () {
             var element = $(this);
 
             swal({
                 title: "确认",
-                text: "确认删除该简历用户吗?",
+                text: "确认该大事迹吗?",
                 type: "warning",
                 confirmButtonText: "删除",
                 cancelButtonText: "取消",
@@ -126,10 +161,11 @@
                 closeOnConfirm: true
             }, function () {
                 $.ajax({
-                    url: "/admin/resume/del?uid=" + element.attr('data-content'),
+                    url: "/admin/about/datebook/del?id=" + element.attr('data-content'),
                     type: "get",
                     success: function (data) {
                         checkResult(data['status'], "删除成功", data['msg'], null);
+
                         setTimeout(function () {
                             location.reload();
                         }, 1200);
