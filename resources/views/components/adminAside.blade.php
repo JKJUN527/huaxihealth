@@ -67,6 +67,39 @@
                     </ul>
                 </li>
                 <li
+                        @if($title === 'news')
+                        class="active"
+                        @endif
+                >
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">subject</i>
+                        <span>新闻中心</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li
+                                @if($subtitle === 'newsList')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/news">公司要闻</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'notesList')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/notes">公示公告</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'addNews')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/addNews">发布新闻</a>
+                        </li>
+                    </ul>
+                </li>
+                <li
                         @if($title === 'region')
                         class="active"
                         @endif
@@ -85,32 +118,6 @@
                         <i class="material-icons">business</i>
                         <span>产品列表</span>
                     </a>
-                </li>
-                <li
-                        @if($title === 'news')
-                        class="active"
-                        @endif
-                >
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">subject</i>
-                        <span>新闻</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li
-                                @if($subtitle === 'newsList')
-                                class="active"
-                                @endif
-                        >
-                            <a href="/admin/news">新闻列表</a>
-                        </li>
-                        <li
-                                @if($subtitle === 'addNews')
-                                class="active"
-                                @endif
-                        >
-                            <a href="/admin/addNews">发布新闻</a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li

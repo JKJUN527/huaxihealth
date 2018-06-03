@@ -69,6 +69,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/datebook'),
         ],
+        /*新闻图片*/
+        'newspic' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/newspic'),
+        ],
 
         's3' => [
             'driver' => 's3',

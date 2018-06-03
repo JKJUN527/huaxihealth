@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\News;
+use App\Notes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,6 +26,17 @@ class EditnewsController extends Controller {
             ->paginate(10);
 
         return view('admin.news', ['data' => $data]);
+    }
+    //公告主页
+    public function notesindex(Request $request) {
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0)
+            return view('admin.login');
+        $data = DashboardController::getLoginInfo();
+        $data['notes'] = Notes::orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('admin.notes', ['data' => $data]);
     }
 
     //根据新闻id 返回每个具体的新闻详情
@@ -55,11 +67,8 @@ class EditnewsController extends Controller {
         if ($uid == 0) {
             return redirect('admin/login');
         }
-        if ($request->has('nid')) {
-            $new = News::find('nid');//修改已有新闻
-        } else {
-            $new = new News();//新增新闻
-        }
+
+        $new = new News();//新增新闻
 
         //接收参数
         $picture = $request->input('pictureIndex');
@@ -89,12 +98,8 @@ class EditnewsController extends Controller {
         }
         //保存都数据库
         $new->title = $request->input('title');
-//        $new->subtitle = $request->input('subtitle');
-//        $new->uid = $uid;//uid 后期通过登录注册方法获取
-        $new->quote = $request->input('quote');
-//        $new->type = $request->input('newtype');
+        $new->author = $request->input('subtitle');
         $new->content = $request->input('content');
-        $new->tag = $request->input('tag');
         if ($new->save()) {
             $data['status'] = 200;
             $data['msg'] = "操作成功";
@@ -104,6 +109,23 @@ class EditnewsController extends Controller {
             $data['msg'] = "操作失败";
             return $data;
         }
+    }
+    public function addNotes(Request $request){
+        $data = array();
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0) {
+            return redirect('admin/login');
+        }
+        $notes = new Notes();//新增公告
+        $notes->content = $request->input('content');
+        if($notes->save()){
+            $data['status'] = 200;
+            $data['msg'] = "操作成功";
+        } else {
+            $data['status'] = 400;
+            $data['msg'] = "操作失败";
+        }
+        return $data;
     }
 
     function delNews(Request $request) {
@@ -115,9 +137,29 @@ class EditnewsController extends Controller {
 
         if ($request->has('id')) {
             $nid = $request->input('id');
-            News::where('nid', '=', $nid)
+            News::where('id', '=', $nid)
                 ->delete();
             $data['status'] = 200;
+        } else {
+            $data['status'] = 200;
+            $data['msg'] = "删除失败";
+        }
+
+        return $data;
+    }
+    function delNotes(Request $request) {
+        $data = array();
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0) {
+            return redirect('admin/login');
+        }
+
+        if ($request->has('id')) {
+            $id = $request->input('id');
+            Notes::where('id', '=', $id)
+                ->delete();
+            $data['status'] = 200;
+            $data['msg'] = "删除成功";
         } else {
             $data['status'] = 200;
             $data['msg'] = "删除失败";

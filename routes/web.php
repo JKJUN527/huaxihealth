@@ -119,6 +119,17 @@ Route::get('admin/about/development', ['uses' => 'Admin\AboutController@strategy
 Route::get('admin/about/addStrategy',['uses' => 'Admin\AboutController@addStrategyIndex']);//编辑发展战略页面
 Route::post('admin/about/development/add', ['uses' => 'Admin\AboutController@strategyAdd']);//发送数据发展战略页面
 
+//发布新闻
+Route::get('admin/news', ['uses' => 'Admin\EditnewsController@index']);//显示已发布新闻信息
+Route::get('admin/notes', ['uses' => 'Admin\EditnewsController@notesindex']);//显示已发布公告列表
+Route::any('admin/news/detail', ['uses' => 'Admin\EditnewsController@detail']);//显示已发布新闻信息
+Route::get('admin/addNews', ['uses' => 'Admin\EditnewsController@addNewsView']);//新增或修改新闻信息
+Route::post('admin/news/add', ['uses' => 'Admin\EditnewsController@addNews']);//新增或修改新闻信息
+Route::post('admin/notes/add', ['uses' => 'Admin\EditnewsController@addNotes']);//新增或修改公告
+Route::any('admin/news/del', ['uses' => 'Admin\EditnewsController@delNews']);
+Route::any('admin/notes/del', ['uses' => 'Admin\EditnewsController@delNotes']);
+
+
 Route::any('admin/region', ['uses' => 'Admin\RegionController@index']);//显示产品分类
 Route::any('admin/region/{option}', ['uses' => 'Admin\RegionController@edit'])->where('option', '[A-Za-z]+');//操作产品分类
 
