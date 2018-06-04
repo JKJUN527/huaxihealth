@@ -72,7 +72,7 @@
                         @endif
                 >
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">subject</i>
+                        <i class="material-icons">message</i>
                         <span>新闻中心</span>
                     </a>
                     <ul class="ml-menu">
@@ -100,14 +100,58 @@
                     </ul>
                 </li>
                 <li
-                        @if($title === 'region')
+                        @if($title === 'technology')
                         class="active"
                         @endif
                 >
-                    <a href="/admin/region">
+                    <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">work</i>
-                        <span>产品分类</span>
+                        <span>科技研发</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li
+                                @if($subtitle === 'expertList')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/technology">专家委员会</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'expertAdd')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/technology/addExpert">新增委员</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'teamList')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/technology/team">科研团队</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'teamAdd')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/technology/addTeam">发布科研团队</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'achievementsList')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/technology/achievements">科研成果</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'achievementsAdd')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/technology/achievementsAdd">成果发布</a>
+                        </li>
+                    </ul>
                 </li>
                 <li
                         @if($title === 'products')

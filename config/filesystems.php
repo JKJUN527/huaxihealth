@@ -74,6 +74,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/newspic'),
         ],
+        /*专家委员会头像*/
+        'expert' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/expert'),
+        ],
 
         's3' => [
             'driver' => 's3',

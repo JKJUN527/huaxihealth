@@ -128,6 +128,12 @@ Route::post('admin/news/add', ['uses' => 'Admin\EditnewsController@addNews']);//
 Route::post('admin/notes/add', ['uses' => 'Admin\EditnewsController@addNotes']);//新增或修改公告
 Route::any('admin/news/del', ['uses' => 'Admin\EditnewsController@delNews']);
 Route::any('admin/notes/del', ['uses' => 'Admin\EditnewsController@delNotes']);
+//专家委员会
+Route::get('admin/technology', ['uses' => 'Admin\TechnologyController@index']);//显示专家委员会成员
+Route::get('admin/technology/addExpert', ['uses' => 'Admin\TechnologyController@addExpertIndex']);//添加委员会界面
+Route::post('admin/technology/addExpert', ['uses' => 'Admin\TechnologyController@addExpertPost']);//提交添加委员会界面
+Route::get('admin/technology/del', ['uses' => 'Admin\TechnologyController@delExpert']);//删除委员
+
 
 
 Route::any('admin/region', ['uses' => 'Admin\RegionController@index']);//显示产品分类
