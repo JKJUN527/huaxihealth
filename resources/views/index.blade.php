@@ -10,6 +10,11 @@
 @endsection
 @section('custom-style')
     {{--<link href="css/index.css" rel='stylesheet' type='text/css' />--}}
+    <style>
+        .tempWrap{
+            width: 100%;
+        }
+    </style>
 @endsection
 @section('content')
 <div class="banner">
@@ -32,36 +37,80 @@
         </div>
         <div class="bd">
             <div class="box">
-                <a href="about1.html" class="more">MORE+</a>
+                <a href="/news" class="more">MORE+</a>
                 <ul class="clearfix">
-                    <li><a href="about1.html"><img src="images/a1.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="about1.html"><img src="images/a2.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="about1.html"><img src="images/a3.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="about1.html"><img src="images/a4.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="about1.html"><img src="images/a5.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="about1.html"><img src="images/a6.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
+                    @forelse($data['news'] as $new)
+                        <li>
+                            <a href="/news/detail?nid={{$new->id}}">
+                                @if($new->picture != null)
+                                    <?php
+                                    $pics = explode(';', $new->picture);
+                                    $baseurl = explode('@', $pics[0])[0];
+                                    $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
+                                    $imagepath = explode('@', $pics[0])[1];
+                                    ?>
+                                        <img src="{{$baseurl}}{{$imagepath}}"/>
+                                @else
+                                        <img src="{{asset('images/wechatcode.jpg')}}"/>
+                                @endif
+                                <h4>{{$new->title}}</h4>
+                                <span class="date">{{mb_substr($new->created_at,0,10,'utf-8')}}</span>
+                            </a>
+                        </li>
+                    @empty
+                        <li>暂无新闻</li>
+                    @endforelse
+            </div>
+            <div class="box">
+                <a href="/industry" class="more">MORE+</a>
+                <ul class="clearfix">
+                    @forelse($data['industry'] as $new)
+                        <li>
+                            <a href="/news/detail?nid={{$new->id}}">
+                                @if($new->picture != null)
+                                    <?php
+                                    $pics = explode(';', $new->picture);
+                                    $baseurl = explode('@', $pics[0])[0];
+                                    $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
+                                    $imagepath = explode('@', $pics[0])[1];
+                                    ?>
+                                    <img src="{{$baseurl}}{{$imagepath}}"/>
+                                @else
+                                    <img src="{{asset('images/wechatcode.jpg')}}"/>
+                                @endif
+                                <h4>{{$new->title}}</h4>
+                                <span class="date">{{mb_substr($new->created_at,0,10,'utf-8')}}</span>
+                            </a>
+                        </li>
+                    @empty
+                        <li>暂无产业动态</li>
+                    @endforelse
                 </ul>
             </div>
             <div class="box">
-                <a href="secret.html" class="more">MORE+</a>
+                <a href="/cooperation" class="more">MORE+</a>
                 <ul class="clearfix">
-                    <li><a href="secret.html"><img src="images/s1.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="secret.html"><img src="images/s2.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="secret.html"><img src="images/s3.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="secret.html"><img src="images/s4.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="secret.html"><img src="images/s5.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="secret.html"><img src="images/s6.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                </ul>
-            </div>
-            <div class="box">
-                <a href="news.html" class="more">MORE+</a>
-                <ul class="clearfix">
-                    <li><a href="nDetail.html"><img src="images/n1.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="nDetail.html"><img src="images/n2.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="nDetail.html"><img src="images/n3.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="nDetail.html"><img src="images/n4.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="nDetail.html"><img src="images/n5.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
-                    <li><a href="nDetail.html"><img src="images/n6.jpg" /><h4>标题名称标题名称标题名称标题名称标题名称</h4><span class="date">2016-05-05</span></a></li>
+                    @forelse($data['cooperation'] as $new)
+                        <li>
+                            <a href="/news/detail?nid={{$new->id}}">
+                                @if($new->picture != null)
+                                    <?php
+                                    $pics = explode(';', $new->picture);
+                                    $baseurl = explode('@', $pics[0])[0];
+                                    $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
+                                    $imagepath = explode('@', $pics[0])[1];
+                                    ?>
+                                    <img src="{{$baseurl}}{{$imagepath}}"/>
+                                @else
+                                    <img src="{{asset('images/wechatcode.jpg')}}"/>
+                                @endif
+                                <h4>{{$new->title}}</h4>
+                                <span class="date">{{mb_substr($new->created_at,0,10,'utf-8')}}</span>
+                            </a>
+                        </li>
+                    @empty
+                        <li>暂无学术研讨</li>
+                    @endforelse
                 </ul>
             </div>
         </div>
@@ -71,16 +120,20 @@
         <div class="notice">
             <div class="n_title">
                 <b>最新通知</b>
-                <a href="notice.html">MORE+</a>
+                <a href="/news/notes">MORE+</a>
             </div>
             <div class="bd">
                 <ul class="infoList">
-                    <li><a href="nDetail.html">通知标题通知标题，通知标题通知标题通知标题通知标题。</a><span class="date">2016-05-11</span></li>
-                    <li><a href="nDetail.html">通知标题通知标题，通知标题通知标题通知标题通知标题。</a><span class="date">2016-05-11</span></li>
-                    <li><a href="nDetail.html">通知标题通知标题，通知标题通知标题通知标题通知标题。</a><span class="date">2016-05-11</span></li>
-                    <li><a href="nDetail.html">通知标题通知标题，通知标题通知标题通知标题通知标题。</a><span class="date">2016-05-11</span></li>
-                    <li><a href="nDetail.html">通知标题通知标题，通知标题通知标题通知标题通知标题。</a><span class="date">2016-05-11</span></li>
-                    <li><a href="nDetail.html">通知标题通知标题，通知标题通知标题通知标题通知标题。</a><span class="date">2016-05-11</span></li>
+                    @forelse($data['notes'] as $note)
+                        <li>
+                            {{$note->content}}
+                            <span class="date">{{mb_substr($note->created_at,0,10,'utf-8')}}</span>
+                        </li>
+                    @empty
+                        <li>
+                            <a>暂无公告</a>
+                        </li>
+                    @endforelse
                 </ul>
             </div>
         </div>
@@ -91,7 +144,9 @@
     </div>
     <div class="clear"></div>
     <div class="friend_link">
-        <b>友情链接：</b><a href="" target="_blank">XX研究中心</a><a href="" target="_blank">XX研究所</a>
+        <b>友情链接：</b>
+        <a href="http://www.schxjk.com:8899" target="_blank">四川华西健康</a>
+        <a href="http://www.cd120.com/" target="_blank">华西医院官网</a>
     </div>
 </div>
 @endsection
