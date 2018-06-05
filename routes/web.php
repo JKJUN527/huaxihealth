@@ -152,45 +152,18 @@ Route::post('admin/industry/addIndustry', ['uses' => 'Admin\IndustryController@a
 Route::get('admin/industry/policy', ['uses' => 'Admin\IndustryController@policyIndex']);//显示列表
 Route::get('admin/industry/hatch', ['uses' => 'Admin\IndustryController@hatchIndex']);//显示列表
 Route::get('admin/industry/fund', ['uses' => 'Admin\IndustryController@fundIndex']);//显示列表
-
-
-
-Route::any('admin/region', ['uses' => 'Admin\RegionController@index']);//显示产品分类
-Route::any('admin/region/{option}', ['uses' => 'Admin\RegionController@edit'])->where('option', '[A-Za-z]+');//操作产品分类
-
-Route::any('admin/products', ['uses' => 'Admin\RegionController@productView']);//显示产品列表
-Route::any('admin/products/{option}', ['uses' => 'Admin\RegionController@productEdit'])->where('option', '[A-Za-z]+');//操作产品
-
-//审批企业信息
-Route::any('admin/enterprise/{option?}', ['uses' => 'Admin\VerificationController@index'])->where('option', '[0-2]{1}');//显示待审核或已审核的企业信息
-Route::any('admin/enterprise/detail', ['uses' => 'Admin\VerificationController@showDetail']);//显示待审核或已审核的企业信息
-Route::any('admin/enterprise/examine', ['uses' => 'Admin\VerificationController@passVerfi']);//显示待审核或已审核的企业信息
-
-
-
-//发布广告
-Route::get('admin/addAds', ['uses' => 'Admin\AdvertsController@addAdView']);//显示已发布广告信息
-
-Route::any('admin/ads', ['uses' => 'Admin\AdvertsController@index']);//显示已发布广告信息
-Route::any('admin/ads/detail', ['uses' => 'Admin\AdvertsController@detail']);//显示已发布广告信息
-Route::any('admin/ads/add', ['uses' => 'Admin\AdvertsController@addAds']);//新增或修改广告信息
-Route::any('admin/ads/find', ['uses' => 'Admin\AdvertsController@findAd']);//查找location位置是否有广告
-Route::any('admin/ads/del', ['uses' => 'Admin\AdvertsController@delAd']);//删除广告
-
-//发布新闻
-Route::any('admin/news', ['uses' => 'Admin\EditnewsController@index']);//显示已发布新闻信息
-Route::any('admin/news/detail', ['uses' => 'Admin\EditnewsController@detail']);//显示已发布新闻信息
-Route::get('admin/addNews', ['uses' => 'Admin\EditnewsController@addNewsView']);//新增或修改新闻信息
-Route::any('admin/news/add', ['uses' => 'Admin\EditnewsController@addNews']);//新增或修改新闻信息
-Route::any('admin/news/del', ['uses' => 'Admin\EditnewsController@delNews']);
-
-//管理企业发布职位
-Route::any('admin/position', ['uses' => 'Admin\PositionController@index']);//显示已发布的职位信息
-Route::any('admin/position/search', ['uses' => 'Admin\PositionController@findPosition']);//根据公司名字搜索对应发布的职位信息
-Route::any('admin/position/urgency', ['uses' => 'Admin\PositionController@isUrgency']);//设置职位是否紧急状态
-Route::any('admin/position/offposition', ['uses' => 'Admin\PositionController@OffPosition']);//下架职位信息
-
-
-Route::any('admin/message', ['uses' => 'Admin\WebinfoController@message']);//显示留言信息
-Route::get('admin/message/detail', ['uses' => 'Admin\WebinfoController@messageDetail']);//显示留言信息详情
-Route::get('admin/message/del', ['uses' => 'Admin\WebinfoController@messageDel']);//删除留言信息详情
+//合作交流
+Route::get('admin/cooperation', ['uses' => 'Admin\CooperationController@index']);//显示列表
+Route::get('admin/cooperation/out', ['uses' => 'Admin\CooperationController@outIndex']);//显示列表
+Route::get('admin/cooperation/Detail', ['uses' => 'Admin\CooperationController@cooperationDetail']);//显示详情
+Route::get('admin/cooperation/Del', ['uses' => 'Admin\CooperationController@cooperationDel']);//删除操作
+Route::get('admin/cooperation/addCooperation', ['uses' => 'Admin\CooperationController@addCooperationIndex']);//添加界面
+Route::post('admin/cooperation/addCooperation', ['uses' => 'Admin\CooperationController@addCooperationPost']);//添加界面
+//联系我们
+Route::get('admin/contact', ['uses' => 'Admin\ContactController@index']);//显示列表
+Route::get('admin/contact/form', ['uses' => 'Admin\ContactController@formIndex']);//显示列表
+Route::get('admin/contact/Detail', ['uses' => 'Admin\ContactController@contactDetail']);//显示详情
+Route::get('admin/contact/Del', ['uses' => 'Admin\ContactController@contactDel']);//删除操作
+Route::get('admin/contact/addContact', ['uses' => 'Admin\ContactController@addContactIndex']);//添加界面
+Route::post('admin/contact/addContact', ['uses' => 'Admin\ContactController@addContactPost']);//添加界面
+Route::post('admin/contact/editContact', ['uses' => 'Admin\ContactController@editContactPost']);//添加界面

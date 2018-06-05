@@ -94,6 +94,16 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/industry'),
         ],
+        /*合作交流*/
+        'cooperation' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/cooperation'),
+        ],
+        /*联系我们*/
+        'contact' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/contact'),
+        ],
 
         's3' => [
             'driver' => 's3',
