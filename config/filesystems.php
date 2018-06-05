@@ -79,6 +79,16 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/expert'),
         ],
+        /*科研团队介绍图片*/
+        'technologyteam' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/technologyteam'),
+        ],
+        /*科研成果相关图片*/
+        'achievement' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/achievement'),
+        ],
 
         's3' => [
             'driver' => 's3',

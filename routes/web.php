@@ -133,7 +133,16 @@ Route::get('admin/technology', ['uses' => 'Admin\TechnologyController@index']);/
 Route::get('admin/technology/addExpert', ['uses' => 'Admin\TechnologyController@addExpertIndex']);//添加委员会界面
 Route::post('admin/technology/addExpert', ['uses' => 'Admin\TechnologyController@addExpertPost']);//提交添加委员会界面
 Route::get('admin/technology/del', ['uses' => 'Admin\TechnologyController@delExpert']);//删除委员
-
+Route::get('admin/technology/team', ['uses' => 'Admin\TechnologyController@teamIndex']);//显示科研团队列表
+Route::get('admin/technology/teamDetail', ['uses' => 'Admin\TechnologyController@teamDetail']);//显示科研团队列表
+Route::get('admin/technology/teamDel', ['uses' => 'Admin\TechnologyController@teamDel']);//删除团队
+Route::get('admin/technology/addTeam', ['uses' => 'Admin\TechnologyController@addteamIndex']);//添加界面
+Route::post('admin/technology/addTeam', ['uses' => 'Admin\TechnologyController@addteamPost']);//提交添加
+Route::get('admin/technology/achievements', ['uses' => 'Admin\TechnologyController@achievementsIndex']);//显示列表
+Route::get('admin/technology/achievementsDetail', ['uses' => 'Admin\TechnologyController@achievementsDetail']);//显示详情
+Route::get('admin/technology/achievementsDel', ['uses' => 'Admin\TechnologyController@achievementsDel']);//删除操作
+Route::get('admin/technology/addAchievements', ['uses' => 'Admin\TechnologyController@addAchievementsIndex']);//添加界面
+Route::post('admin/technology/addAchievements', ['uses' => 'Admin\TechnologyController@addachievementsPost']);//添加界面
 
 
 Route::any('admin/region', ['uses' => 'Admin\RegionController@index']);//显示产品分类

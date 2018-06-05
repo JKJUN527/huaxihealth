@@ -149,7 +149,7 @@
                                 class="active"
                                 @endif
                         >
-                            <a href="/admin/technology/achievementsAdd">成果发布</a>
+                            <a href="/admin/technology/addAchievements">成果发布</a>
                         </li>
                     </ul>
                 </li>

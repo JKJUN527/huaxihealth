@@ -41,7 +41,7 @@
                         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                             for="demo-menu-lower-right">
                             <li class="mdl-menu__item">
-                                <a href="/admin/technology/addExpertList">添加委员</a>
+                                <a href="/admin/technology/addExpert">添加委员</a>
                             </li>
                         </ul>
                     </div>
