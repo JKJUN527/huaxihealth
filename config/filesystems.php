@@ -89,6 +89,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/achievement'),
         ],
+        /*产业服务*/
+        'industry' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/industry'),
+        ],
 
         's3' => [
             'driver' => 's3',
