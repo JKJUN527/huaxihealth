@@ -26,29 +26,31 @@
                 <div class="con_box">
                     <p style="text-align: center"><span style="font-size: 22px"><span><strong><span>成都华西精准医学产业技术研究院大事迹</span></strong></span></span></p>
                     <ul class="img-list">
+                        @forelse($data['datebook'] as $datebook)
                         <li>
-                            <a href="pDetail.html"><img src="{{asset('images/n6.jpg')}}" /><b>2015年4月24日，研究院成立</b></a>
+                            <a href="/about/datebook/detail?id={{$datebook->id}}">
+                                @if($datebook->picture != null)
+                                    <?php
+                                    $pics = explode(';', $datebook->picture);
+                                    $baseurl = explode('@', $pics[0])[0];
+                                    $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
+                                    $imagepath = explode('@', $pics[0])[1];
+                                    ?>
+                                    <img src="{{$baseurl}}{{$imagepath}}"/>
+                                @else
+                                    <img src="{{asset('images/n6.jpg')}}"/>
+                                @endif
+                                <b>{{$datebook->title}}</b>
+                            </a>
                         </li>
-                        <li>
-                            <a href="pDetail.html"><img src="{{asset('images/n6.jpg')}}" /><b>2015年4月24日，研究院成立</b></a>
-                        </li>
-                        <li>
-                            <a href="pDetail.html"><img src="/images/n6.jpg" /><b>2015年4月24日，研究院成立</b></a>
-                        </li>
-                        <li>
-                            <a href="pDetail.html"><img src="/images/n6.jpg" /><b>2015年4月24日，研究院成立</b></a>
-                        </li>
-                        <li>
-                            <a href="pDetail.html"><img src="/images/n6.jpg" /><b>2015年4月24日，研究院成立</b></a>
-                        </li>
-                        <li>
-                            <a href="pDetail.html"><img src="/images/n6.jpg" /><b>2015年4月24日，研究院成立</b></a>
-                        </li>
-                        <li>
-                            <a href="pDetail.html"><img src="/images/n6.jpg" /><b>2015年4月24日，研究院成立</b></a>
-                        </li>
+                        @empty
+                            <li>暂无大事迹</li>
+                        @endforelse
                     </ul>
                 </div>
+                <nav>
+                    {!! $data['datebook']->render() !!}
+                </nav>
             </div>
             <div class="clear"></div>
         </div>

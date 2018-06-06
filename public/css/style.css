@@ -390,7 +390,10 @@ ul,li{
 	/*width: 174px;*/
 	max-width: 190px;
 	overflow: hidden;
-	padding: 8px; margin: 0 6px 20px 6px; background: #fff; float: left; border: solid 1px #ebebeb; text-align: center;
+	padding: 8px; margin: 0 6px 20px 6px; background: #fff;
+	/*float: left; */
+	border: solid 1px #ebebeb; text-align: center;
+	display: inline-block;
 }
 .img-list li:hover{
 	border: solid 1px #ddd;
@@ -399,7 +402,7 @@ ul,li{
 	color: #333; 
 }
 .img-list li img{
-	width: 174px; height: auto; /*height: 180px;*/ display: block; margin: 0 auto 10px auto;
+	width: 174px; height: 135px; /*height: 180px;*/ display: block; margin: 0 auto 10px auto;
 }
 /*----换页----*/
 .record{ 

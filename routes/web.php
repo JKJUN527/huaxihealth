@@ -12,20 +12,14 @@
 */
 Route::get('/', ['uses' => 'HomeController@index']);
 Route::get('/index', ['uses' => 'HomeController@index']);
-
 /*关于页面*/
-Route::get('/about', function () {
-    return view('about.index');
-});
-Route::get('/about/team', function () {
-    return view('about.team');
-});
-Route::get('/about/structure', function () {
-    return view('about.structure');
-});
-Route::get('/about/datebook', function () {
-    return view('about.datebook');
-});
+Route::get('/about', ['uses' => 'AboutController@index']);
+Route::get('/about/team', ['uses' => 'AboutController@team']);
+Route::get('/about/structure', ['uses' => 'AboutController@structure']);
+Route::get('/about/datebook', ['uses' => 'AboutController@datebook']);
+Route::get('/about/datebook/detail', ['uses' => 'AboutController@datebookDetail']);
+Route::get('/about/datebook/development', ['uses' => 'AboutController@development']);
+
 /* 新闻中心*/
 Route::get('/news', function () {
     return view('news.index');

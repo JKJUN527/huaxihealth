@@ -46,7 +46,7 @@ class AboutController extends Controller {
 
                 $bool = Storage::disk('profile')->put($picname, file_get_contents($realPath));
 
-                $team->picture = asset('storage/profile/' . $picname);
+                $team->picture = asset('storage/profiles/' . $picname);
             }
         }
         $team->name = $request->input('name');

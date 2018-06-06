@@ -27,7 +27,7 @@
                     <p style="text-align: center"><span style="font-size: 22px"><span><strong><span>成都华西精准医学产业技术研究院组织架构</span></strong></span></span></p>
                     <p style="padding-right: 16px; padding-left: 16px; font-size: 16px; padding-bottom: 16px; line-height: 200%; padding-top: 16px; font-family: 宋体">
                         <span>
-                            <img alt="" src="{{asset('images/structure.png')}}" width="750" height="511" align="middle">
+                            <img alt="" src="{{$data['webinfo']->structure or asset('images/structure.png')}}" width="750" height="511" align="middle">
                         </span>
                     </p>
                 </div>

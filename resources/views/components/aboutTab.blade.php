@@ -6,7 +6,7 @@
             <li @if($index == 2) class="active" @endif><a href="/about/team">团队介绍</a></li>
             <li @if($index == 3) class="active" @endif><a href="/about/structure">组织架构</a></li>
             <li @if($index == 4) class="active" @endif><a href="/about/datebook">大事记</a></li>
-            <li @if($index == 5) class="active" @endif><a href="">发展战略</a></li>
+            <li @if($index == 5) class="active" @endif><a href="/about/datebook/development">发展战略</a></li>
         </ul>
     </div>
     <div class="contact">

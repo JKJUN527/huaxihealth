@@ -8,6 +8,11 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
     <link href="{{asset('plugins/bootstrap/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css' />
+    <style>
+        nav{
+            text-align: center;
+        }
+    </style>
     @section('custom-style')
     @show
 </head>

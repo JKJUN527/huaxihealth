@@ -46,7 +46,7 @@
     padding-left: 25px;
     position: absolute;
     left: 40px;
-    bottom: 20%;
+    bottom: 5%;
     cursor: pointer;
 }
 
@@ -55,10 +55,10 @@
 }
 .team-list {
     background: #efefef;
-    padding: 10px 20px;
+    padding: 5px 10px;
 }
 .team-list h1 {
-    font-size: 30px;
+    font-size: 20px;
     color: #b4a38a;
     display: inline-block;
     cursor: pointer;
@@ -67,10 +67,12 @@
     color: #ff6b00;
 }
 .team-list p {
-    font-size: 16px;
+    font-size: 13px;
     color: #333333;
     margin-top: 10px;
     line-height: 22px;
+    white-space:nowrap;
+    overflow: hidden;
 }
 .team-list em {
     background: url(/images/icon-arr-top01.png) no-repeat;

@@ -24,203 +24,210 @@
             <div class="right_content">
                 <div class="con_title">团队介绍</div>
                 <div class="con_box">
-                    <div class="team-show" style="display: block;">
+                    @forelse($data['team'] as $team)
+                    <div class="team-show" style="display:none;">
                         <div class="col-md-8 col-sm-8 col-xs-12 show-left">
-                            <b>赵双连</b>
-                            <em>党组书记、董事长</em>
-                            <p>
-                            </p><p>
-                                毕业于中央党校研究生院。历任包头市郊区副区长、副书记、区长、包头市副市长，包头市委常委、副市长，哲里木盟盟委副书记、盟长，通辽市委、党组书记。2016年加入中粮集团。</p>
-
+                            <b>{{$team->name}}</b>
+                            <em>{{$team->byname}}</em>
+                            <p></p>
+                            <p>{!! $team->brief !!}</p>
                             <p></p>
                         </div>
                         <div class="col-md-4 col-sm-4 col-xs-12 show-right">
-                            <img src="/uploads/170616/9-1F6161K249546.jpg" style="">
+                            <img src="{{$team->picture or asset('images/photo_default.jpg')}}" style="">
                         </div>
                         <i class="show-close">关闭</i>
                     </div>
-                    <div class="team-show" style="display: none;">
-                        <div class="col-md-8 col-sm-8 col-xs-12 show-left">
-                            <b>于旭波</b>
-                            <em>党组副书记、董事、总裁</em>
-                            <p>
-                            </p><p>
-                                毕业于对外经济贸易大学，国际贸易专业，中欧国际工商学院EMBA。1988年加入中粮集团。</p>
+                    @empty
+                        <div class="team-show" style="display: block;">
+                            暂无团队介绍
+                        </div>
+                    @endforelse
+                    {{--<div class="team-show" style="display: none;">--}}
+                        {{--<div class="col-md-8 col-sm-8 col-xs-12 show-left">--}}
+                            {{--<b>于旭波</b>--}}
+                            {{--<em>党组副书记、董事、总裁</em>--}}
+                            {{--<p>--}}
+                            {{--</p><p>--}}
+                                {{--毕业于对外经济贸易大学，国际贸易专业，中欧国际工商学院EMBA。1988年加入中粮集团。</p>--}}
 
-                            <p></p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 show-right">
-                            <img src="/uploads/170616/9-1F6161K330Z4.jpg" style="">
-                        </div>
-                        <i class="show-close">关闭</i>
-                    </div>
-                    <div class="team-show" style="display: none;">
-                        <div class="col-md-8 col-sm-8 col-xs-12 show-left">
-                            <b>万早田</b>
-                            <em>党组副书记、副总裁</em>
-                            <p>
-                            </p><p>
-                                毕业于华中农业大学，农学专业，北京大学行政管理硕士。2006年加入中粮集团。</p>
+                            {{--<p></p>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-4 col-sm-4 col-xs-12 show-right">--}}
+                            {{--<img src="/uploads/170616/9-1F6161K330Z4.jpg" style="">--}}
+                        {{--</div>--}}
+                        {{--<i class="show-close">关闭</i>--}}
+                    {{--</div>--}}
+                    {{--<div class="team-show" style="display: none;">--}}
+                        {{--<div class="col-md-8 col-sm-8 col-xs-12 show-left">--}}
+                            {{--<b>万早田</b>--}}
+                            {{--<em>党组副书记、副总裁</em>--}}
+                            {{--<p>--}}
+                            {{--</p><p>--}}
+                                {{--毕业于华中农业大学，农学专业，北京大学行政管理硕士。2006年加入中粮集团。</p>--}}
 
-                            <p></p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 show-right">
-                            <img src="/uploads/170616/9-1F6161K411394.jpg" style="">
-                        </div>
-                        <i class="show-close">关闭</i>
-                    </div>
-                    <div class="team-show" style="display: none;">
-                        <div class="col-md-8 col-sm-8 col-xs-12 show-left">
-                            <b>迟京涛</b>
-                            <em>党组成员、常务副总裁</em>
-                            <p>
-                            </p><p>
-                                毕业于装甲兵工程学院，车辆与机械工程专业，对外经济贸易大学EMBA。2003年加入中粮集团。</p>
+                            {{--<p></p>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-4 col-sm-4 col-xs-12 show-right">--}}
+                            {{--<img src="/uploads/170616/9-1F6161K411394.jpg" style="">--}}
+                        {{--</div>--}}
+                        {{--<i class="show-close">关闭</i>--}}
+                    {{--</div>--}}
+                    {{--<div class="team-show" style="display: none;">--}}
+                        {{--<div class="col-md-8 col-sm-8 col-xs-12 show-left">--}}
+                            {{--<b>迟京涛</b>--}}
+                            {{--<em>党组成员、常务副总裁</em>--}}
+                            {{--<p>--}}
+                            {{--</p><p>--}}
+                                {{--毕业于装甲兵工程学院，车辆与机械工程专业，对外经济贸易大学EMBA。2003年加入中粮集团。</p>--}}
 
-                            <p></p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 show-right">
-                            <img src="/uploads/170616/9-1F6161K433525.jpg" style="">
-                        </div>
-                        <i class="show-close">关闭</i>
-                    </div>
-                    <div class="team-show" style="display: none;">
-                        <div class="col-md-8 col-sm-8 col-xs-12 show-left">
-                            <b>马建平</b>
-                            <em>党组成员、副总裁</em>
-                            <p>
-                            </p><p>
-                                毕业于对外经济贸易大学，会计专业，对外经济贸易大学EMBA。1986年加入中粮集团。</p>
+                            {{--<p></p>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-4 col-sm-4 col-xs-12 show-right">--}}
+                            {{--<img src="/uploads/170616/9-1F6161K433525.jpg" style="">--}}
+                        {{--</div>--}}
+                        {{--<i class="show-close">关闭</i>--}}
+                    {{--</div>--}}
+                    {{--<div class="team-show" style="display: none;">--}}
+                        {{--<div class="col-md-8 col-sm-8 col-xs-12 show-left">--}}
+                            {{--<b>马建平</b>--}}
+                            {{--<em>党组成员、副总裁</em>--}}
+                            {{--<p>--}}
+                            {{--</p><p>--}}
+                                {{--毕业于对外经济贸易大学，会计专业，对外经济贸易大学EMBA。1986年加入中粮集团。</p>--}}
 
-                            <p></p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 show-right">
-                            <img src="/uploads/170616/9-1F6161K51XK.jpg" style="">
-                        </div>
-                        <i class="show-close">关闭</i>
-                    </div>
-                    <div class="team-show" style="display: none;">
-                        <div class="col-md-8 col-sm-8 col-xs-12 show-left">
-                            <b>栾日成</b>
-                            <em>党组成员、副总裁</em>
-                            <p>
-                            </p><p>
-                                毕业于山东大学，中国古代文学硕士，中欧国际工商学院EMBA，曾任中纺集团总经理。2016年加入中粮集团。</p>
+                            {{--<p></p>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-4 col-sm-4 col-xs-12 show-right">--}}
+                            {{--<img src="/uploads/170616/9-1F6161K51XK.jpg" style="">--}}
+                        {{--</div>--}}
+                        {{--<i class="show-close">关闭</i>--}}
+                    {{--</div>--}}
+                    {{--<div class="team-show" style="display: none;">--}}
+                        {{--<div class="col-md-8 col-sm-8 col-xs-12 show-left">--}}
+                            {{--<b>栾日成</b>--}}
+                            {{--<em>党组成员、副总裁</em>--}}
+                            {{--<p>--}}
+                            {{--</p><p>--}}
+                                {{--毕业于山东大学，中国古代文学硕士，中欧国际工商学院EMBA，曾任中纺集团总经理。2016年加入中粮集团。</p>--}}
 
-                            <p></p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 show-right">
-                            <img src="/uploads/170616/9-1F6161K53aV.jpg" style="">
-                        </div>
-                        <i class="show-close">关闭</i>
-                    </div>
-                    <div class="team-show" style="display: none;">
-                        <div class="col-md-8 col-sm-8 col-xs-12 show-left">
-                            <b>马王军</b>
-                            <em>党组成员、总会计师</em>
-                            <p>
-                            </p><p>
-                                毕业于北京商学院，会计专业，长江商学院EMBA。1988年加入中粮集团。</p>
+                            {{--<p></p>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-4 col-sm-4 col-xs-12 show-right">--}}
+                            {{--<img src="/uploads/170616/9-1F6161K53aV.jpg" style="">--}}
+                        {{--</div>--}}
+                        {{--<i class="show-close">关闭</i>--}}
+                    {{--</div>--}}
+                    {{--<div class="team-show" style="display: none;">--}}
+                        {{--<div class="col-md-8 col-sm-8 col-xs-12 show-left">--}}
+                            {{--<b>马王军</b>--}}
+                            {{--<em>党组成员、总会计师</em>--}}
+                            {{--<p>--}}
+                            {{--</p><p>--}}
+                                {{--毕业于北京商学院，会计专业，长江商学院EMBA。1988年加入中粮集团。</p>--}}
 
-                            <p></p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 show-right">
-                            <img src="/uploads/170616/9-1F6161K602133.jpg" style="">
-                        </div>
-                        <i class="show-close">关闭</i>
-                    </div>
-                    <div class="team-show" style="display: none;">
-                        <div class="col-md-8 col-sm-8 col-xs-12 show-left">
-                            <b>周政</b>
-                            <em>党组成员、副总裁</em>
-                            <p>
-                            </p><p>
-                                毕业于南昌航空大学，北京航空航天大学航空宇航制造工程硕士，国务院特殊津贴专家。1993年加入中粮集团。</p>
+                            {{--<p></p>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-4 col-sm-4 col-xs-12 show-right">--}}
+                            {{--<img src="/uploads/170616/9-1F6161K602133.jpg" style="">--}}
+                        {{--</div>--}}
+                        {{--<i class="show-close">关闭</i>--}}
+                    {{--</div>--}}
+                    {{--<div class="team-show" style="display: none;">--}}
+                        {{--<div class="col-md-8 col-sm-8 col-xs-12 show-left">--}}
+                            {{--<b>周政</b>--}}
+                            {{--<em>党组成员、副总裁</em>--}}
+                            {{--<p>--}}
+                            {{--</p><p>--}}
+                                {{--毕业于南昌航空大学，北京航空航天大学航空宇航制造工程硕士，国务院特殊津贴专家。1993年加入中粮集团。</p>--}}
 
-                            <p></p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 show-right">
-                            <img src="/uploads/170616/9-1F6161K6214X.jpg" style="">
-                        </div>
-                        <i class="show-close">关闭</i>
-                    </div>
-                    <div class="team-show" style="display: none;">
-                        <div class="col-md-8 col-sm-8 col-xs-12 show-left">
-                            <b>袁久强</b>
-                            <em>党组成员、党组纪检组组长</em>
-                            <p>
+                            {{--<p></p>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-4 col-sm-4 col-xs-12 show-right">--}}
+                            {{--<img src="/uploads/170616/9-1F6161K6214X.jpg" style="">--}}
+                        {{--</div>--}}
+                        {{--<i class="show-close">关闭</i>--}}
+                    {{--</div>--}}
+                    {{--<div class="team-show" style="display: none;">--}}
+                        {{--<div class="col-md-8 col-sm-8 col-xs-12 show-left">--}}
+                            {{--<b>袁久强</b>--}}
+                            {{--<em>党组成员、党组纪检组组长</em>--}}
+                            {{--<p>--}}
 
-                            </p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 show-right">
-                            <img src="/images/defaultpic.gif" style="">
-                        </div>
-                        <i class="show-close">关闭</i>
-                    </div>
+                            {{--</p>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-4 col-sm-4 col-xs-12 show-right">--}}
+                            {{--<img src="/images/defaultpic.gif" style="">--}}
+                        {{--</div>--}}
+                        {{--<i class="show-close">关闭</i>--}}
+                    {{--</div>--}}
+
                     <ul class="row team-box">
-                        <li class="col-md-4 col-sm-4 col-xs-6">
-                            <div class="team-list">
-                                <h1 class="h1-hover">赵双连</h1>
-                                <p>党组书记、董事长</p>
-                                <em class=""><!--这里是箭头哦--></em>
-                            </div>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-6">
-                            <div class="team-list">
-                                <h1 class="">于旭波</h1>
-                                <p>党组副书记、董事、总裁</p>
-                                <em class=""><!--这里是箭头哦--></em>
-                            </div>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-6">
-                            <div class="team-list">
-                                <h1 class="">万早田</h1>
-                                <p>党组副书记、副总裁</p>
-                                <em class=""><!--这里是箭头哦--></em>
-                            </div>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-6">
-                            <div class="team-list">
-                                <h1 class="">迟京涛</h1>
-                                <p>党组成员、常务副总裁</p>
-                                <em class=""><!--这里是箭头哦--></em>
-                            </div>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-6">
-                            <div class="team-list">
-                                <h1 class="">马建平</h1>
-                                <p>党组成员、副总裁</p>
-                                <em class=""><!--这里是箭头哦--></em>
-                            </div>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-6">
-                            <div class="team-list">
-                                <h1 class="">栾日成</h1>
-                                <p>党组成员、副总裁</p>
-                                <em class=""><!--这里是箭头哦--></em>
-                            </div>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-6">
-                            <div class="team-list">
-                                <h1 class="">马王军</h1>
-                                <p>党组成员、总会计师</p>
-                                <em class=""><!--这里是箭头哦--></em>
-                            </div>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-6">
-                            <div class="team-list">
-                                <h1 class="h1-hover">周政</h1>
-                                <p>党组成员、副总裁</p>
-                                <em class="em-hover"><!--这里是箭头哦--></em>
-                            </div>
-                        </li>
-                        <li class="col-md-4 col-sm-4 col-xs-6">
-                            <div class="team-list nohover">
-                                <h1 class="">袁久强</h1>
-                                <p>党组纪检组组长</p>
-                                <em class=""><!--这里是箭头哦--></em>
-                            </div>
-                        </li>
+                        @foreach($data['team'] as $team)
+                            <li class="col-md-3 col-sm-3 col-xs-4">
+                                <div class="team-list">
+                                    <h1 class="h1-hover">{{$team->name}}</h1>
+                                    <p>{{$team->byname}}</p>
+                                    <em class=""><!--这里是箭头哦--></em>
+                                </div>
+                            </li>
+                        @endforeach
+                        {{--<li class="col-md-3 col-sm-3 col-xs-4">--}}
+                            {{--<div class="team-list">--}}
+                                {{--<h1 class="">于旭波</h1>--}}
+                                {{--<p>党组副书记、董事、总裁</p>--}}
+                                {{--<em class=""><!--这里是箭头哦--></em>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li class="col-md-3 col-sm-3 col-xs-4">--}}
+                            {{--<div class="team-list">--}}
+                                {{--<h1 class="">万早田</h1>--}}
+                                {{--<p>党组副书记、副总裁</p>--}}
+                                {{--<em class=""><!--这里是箭头哦--></em>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li class="col-md-3 col-sm-3 col-xs-4">--}}
+                            {{--<div class="team-list">--}}
+                                {{--<h1 class="">迟京涛</h1>--}}
+                                {{--<p>党组成员、常务副总裁</p>--}}
+                                {{--<em class=""><!--这里是箭头哦--></em>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li class="col-md-3 col-sm-3 col-xs-4">--}}
+                            {{--<div class="team-list">--}}
+                                {{--<h1 class="">马建平</h1>--}}
+                                {{--<p>党组成员、副总裁</p>--}}
+                                {{--<em class=""><!--这里是箭头哦--></em>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li class="col-md-3 col-sm-3 col-xs-4">--}}
+                            {{--<div class="team-list">--}}
+                                {{--<h1 class="">栾日成</h1>--}}
+                                {{--<p>党组成员、副总裁</p>--}}
+                                {{--<em class=""><!--这里是箭头哦--></em>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li class="col-md-3 col-sm-3 col-xs-4">--}}
+                            {{--<div class="team-list">--}}
+                                {{--<h1 class="">马王军</h1>--}}
+                                {{--<p>党组成员、总会计师</p>--}}
+                                {{--<em class=""><!--这里是箭头哦--></em>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li class="col-md-3 col-sm-3 col-xs-4">--}}
+                            {{--<div class="team-list">--}}
+                                {{--<h1 class="h1-hover">周政</h1>--}}
+                                {{--<p>党组成员、副总裁</p>--}}
+                                {{--<em class="em-hover"><!--这里是箭头哦--></em>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
+                        {{--<li class="col-md-3 col-sm-3 col-xs-4">--}}
+                            {{--<div class="team-list nohover">--}}
+                                {{--<h1 class="">袁久强</h1>--}}
+                                {{--<p>党组纪检组组长</p>--}}
+                                {{--<em class=""><!--这里是箭头哦--></em>--}}
+                            {{--</div>--}}
+                        {{--</li>--}}
 
                     </ul>
                 </div>
