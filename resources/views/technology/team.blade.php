@@ -25,17 +25,15 @@
                 <div class="con_title">科研团队</div>
                 <div class="con_box">
                     <ul class="items-list">
-                        <li><a href="/technology/team/detail">团队1</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">团队2</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">团队3</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">团队4</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">团队5</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">团队6</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">团队7</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">团队8</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">团队9</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">团队10</a><span class="date">2016-05-05</span></li>
+                        @forelse($data['team'] as $item)
+                            <li><a href="/technology/team/detail?id={{$item->id}}">{{$item->title}}</a><span class="date">{{substr($item->created_at,0,10)}}</span></li>
+                        @empty
+                            <li>暂无团队发布</li>
+                        @endforelse
                     </ul>
+                    <nav>
+                        {!! $data['team']->render() !!}
+                    </nav>
                 </div>
             </div>
             <div class="clear"></div>

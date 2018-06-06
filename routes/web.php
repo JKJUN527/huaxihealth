@@ -21,25 +21,16 @@ Route::get('/about/datebook/detail', ['uses' => 'AboutController@datebookDetail'
 Route::get('/about/datebook/development', ['uses' => 'AboutController@development']);
 
 /* 新闻中心*/
-Route::get('/news', function () {
-    return view('news.index');
-});
-Route::get('/news/detail', function () {
-    return view('news.detail');
-});
-Route::get('/news/notes', function () {
-    return view('news.notes');
-});
+Route::get('/news', ['uses' => 'NewsController@index']);
+Route::get('/news/detail', ['uses' => 'NewsController@detail']);
+Route::get('/news/notes', ['uses' => 'NewsController@notes']);
+
 //科技研发
-Route::get('/technology', function () {
-    return view('technology.index');
-});
-Route::get('/technology/team', function () {
-    return view('technology.team');
-});
-Route::get('/technology/team/detail', function () {
-    return view('technology.teamDetail');
-});
+Route::get('/technology', ['uses' => 'TechnologyController@index']);
+Route::get('/technology/detail', ['uses' => 'TechnologyController@indexDetail']);
+Route::get('/technology/team', ['uses' => 'TechnologyController@team']);
+Route::get('/technology/team/detail', ['uses' => 'TechnologyController@teamDetail']);
+
 Route::get('/technology/achievements', function () {
     return view('technology.achievement');
 });

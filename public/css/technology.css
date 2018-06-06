@@ -16,6 +16,22 @@
     height: 2px;
     background-color: #267bb1;
 }
+.team .teachername {
+    display: inline-block;
+    width: 112px;
+    height: 44px;
+    border: 1px solid #e7e7e7;
+    /*border-bottom: 1px dashed #ccc;*/
+    line-height: 44px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 28px 20px 0 19px;
+}
+.team .teachername:hover{
+    background-color: #267bb1;
+    color: white;
+}
 .team-detail .team-head img {
     width: 200px;
     height: 200px;

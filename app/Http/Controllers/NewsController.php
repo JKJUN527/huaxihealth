@@ -8,37 +8,28 @@
 
 namespace App\Http\Controllers;
 
-use App\About;
-use App\Datebook;
 use App\Http\Controllers\Controller;
-use App\Team;
+use App\News;
+use App\Notes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class AboutController extends Controller {
+class NewsController extends Controller {
     //团队介绍
     public function index(Request $request) {
 
-        $data['webinfo'] = About::select('ebrief')->first();
-
-        return view('about.index', ['data' => $data]);
-    }
-    public function team(){
-        $data['team'] = Team::all();
-
-        return view('about.team', ['data' => $data]);
-    }
-    public function structure(){
-        $data['webinfo'] = About::select('structure')->first();
-
-        return view('about.structure', ['data' => $data]);
-    }
-    public function datebook(){
-        $data['datebook'] = Datebook::where('statue',0)
+        $data['news'] = News::where('statue',0)
             ->orderBy('created_at','desc')
-            ->paginate(12);
+            ->paginate(10);
 
-        return view('about.datebook', ['data' => $data]);
+        return view('news.index', ['data' => $data]);
+    }
+    public function notes(Request $request) {
+
+        $data['notes'] = Notes::orderBy('created_at','desc')
+            ->paginate(10);
+
+        return view('news.notes', ['data' => $data]);
     }
     public function datebookDetail(Request $request){
         if($request->has('id')){

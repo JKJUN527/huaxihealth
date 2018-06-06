@@ -26,10 +26,10 @@
                 <div class="con_title">团队详情</div>
                 <div class="con_box">
                     <div class="ny_tdbk">
-                        <div class="ny_jlxqt">能源战略与运筹研究中心</div>
+                        <div class="ny_jlxqt">{{$data['detail']->title}}</div>
                         <div class="ny_jlxqjj">
                             <br>
-                            <p>2017年9 月 11 日至12日，2017中美绿色能源高峰论坛在蓉盛大举行。300多名来自中美两国电力行业、可再生能源行业、信息技术行业和互联网行业的领军人物和行业人士出席论坛。本次论坛由清华四川能源互联网研究院承办，美中绿色能源促进会、四川省外事侨务办、中国电机工程学会等单位主办，聚焦全球能源转型，共同探讨推广绿色能源、满足全球电力需求、减少大气污染等举世瞩目的话题。</p>
+                            {!! $data['detail']->content !!}
                         </div>
                     </div>
                 </div>

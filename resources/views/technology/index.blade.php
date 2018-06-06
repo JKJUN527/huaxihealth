@@ -26,32 +26,15 @@
                 <div class="con_box">
                     <div class="team">
                         <div class="wrap"><h3>主任委员<span></span> </h3></div>
-                        <div class="activity">
-                            <div class="team-detail">
-                                <div class="team-head">
-
-                                    <img class="fl" src="/public/uploads/">
-                                    <div class="team-info">
-                                        <h2>陈兴蜀</h2>
-                                        <p class="lable">常务副院长、博士、教授、博士生导师</p>
-                                        <p>专业：<span>网络空间安全</span></p>
-                                        <p>研究方向：<span></span></p>
-                                        <p>Email：<span></span></p>
-                                        <p>电话：<span></span></p>
-                                        <!-- <p>地址：<span></span></p>
-                                         <p>邮编：<span>网络空间安全</span></p>-->
-                                    </div>
-                                </div>
-                                <div class="team-detailcon">
-                                    <p>&nbsp;陈兴蜀教授简介</p>
-                                    <p>&nbsp;</p>
-                                </div>
-                            </div>
-                        </div>
+                        @foreach($data['teamfirst'] as $item)
+                            <a class="teachername" href="/technology/detail?id={{$item->id}}">{{$item->name}}</a>
+                        @endforeach
                     </div>
-                    <div class="team">
+                    <div class="team" style="margin-top: 2rem;">
                         <div class="wrap"><h3>委员<span></span> </h3></div>
-
+                        @foreach($data['teamsecend'] as $item)
+                            <a class="teachername" href="/technology/detail?id={{$item->id}}">{{$item->name}}</a>
+                        @endforeach
                     </div>
                 </div>
             </div>

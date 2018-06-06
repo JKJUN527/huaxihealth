@@ -245,13 +245,13 @@
                         var height = image.height;
                         console.log(width + "//" + height);
 
-                        if (width > 1000 || height > 1000) {
+                        if (width > 1500 || height > 1500) {
                             isCorrect = false;
                             picture.val("");
                             swal({
                                 title: "错误",
                                 type: "error",
-                                text: "当前选择图片分辨率为: " + width + "px * " + height + "px \n图片分辨率应小于 1000像素 * 1000像素",
+                                text: "当前选择图片分辨率为: " + width + "px * " + height + "px \n图片分辨率应小于 1500像素 * 1500像素",
                                 cancelButtonText: "关闭",
                                 showCancelButton: true,
                                 showConfirmButton: false

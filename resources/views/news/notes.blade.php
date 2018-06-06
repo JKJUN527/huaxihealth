@@ -25,29 +25,16 @@
                 <div class="con_title">公示公告</div>
                 <div class="con_box">
                     <ul class="items-list">
-                        <li><a href="sDetail.html">公告1</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">公告2</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">公告3</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">公告4</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">公告5</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">公告6</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">公告7</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">公告8</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">公告9</a><span class="date">2016-05-05</span></li>
-                        <li><a href="sDetail.html">公告10</a><span class="date">2016-05-05</span></li>
+                        @forelse($data['notes'] as $note)
+                            <li><a href="#">{{$note->content}}</a><span class="date">{{substr($note->created_at,0,10)}}</span></li>
+                        @empty
+                            <li>暂无公告发布</li>
+                        @endforelse
                     </ul>
                     <!--分页-->
-                    <div class="record">
-                        <span class="prev"><a href="">上一页</a></span>
-                        <span class="word"><a href="">1</a></span>
-                        <span class="word"><a href="">2</a></span>
-                        <span class="word"><a href="">3</a></span>
-                        <span class="word"><a href="">4</a></span>
-                        <span class="word"><a href="">5</a></span>
-                        <span class="word"><a href="">6</a></span>
-                        <span class="next"><a href="">下一页</a></span>
-                        <span class="sum">共6页</span>
-                    </div>
+                    <nav>
+                        {!! $data['notes']->render() !!}
+                    </nav>
                 </div>
             </div>
             <div class="clear"></div>
