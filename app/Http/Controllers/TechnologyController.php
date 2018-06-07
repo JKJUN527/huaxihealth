@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\About;
+use App\Achievements;
 use App\Committee;
 use App\Datebook;
 use App\Http\Controllers\Controller;
@@ -41,6 +42,12 @@ class TechnologyController extends Controller {
 
         return view('technology.team', ['data' => $data]);
     }
+    public function achievements(){
+        $data['achievements'] = Achievements::orderBy('created_at','desc')
+            ->paginate(10);
+
+        return view('technology.achievement', ['data' => $data]);
+    }
     public function teamDetail(Request $request){
         if($request->has('id')){
             $id = $request->input('id');
@@ -66,4 +73,30 @@ class TechnologyController extends Controller {
         }
         return $this->team();
     }
+    public function achievementsDetail(Request $request){
+        if($request->has('nid')){
+            $id = $request->input('nid');
+            $data['detail'] = Achievements::find($id);
+            //还原新闻中的图片
+            $images = $data['detail']->picture;
+            if($images !=null){
+                $imageTemp = explode(';',$images);
+                array_pop($imageTemp);
+                $imagesArray = [];
+                foreach ($imageTemp as $item){
+                    $imagesArray[] = explode('@',$item);
+                }
+                $baseUrl = substr($imagesArray[0][0],0,-1);
+                $imagesArray[0][0] = substr($imagesArray[0][0],-1);
+                foreach ($imagesArray as $item){
+                    $imageurl = $baseUrl.$item[1];
+                    $replace = "<div class='news-image'><img src='".$imageurl."'/></div>";
+                    $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
+                }
+            }
+            return view('technology.achievementDetail',['data'=>$data]);
+        }
+        return $this->achievements();
+    }
+
 }

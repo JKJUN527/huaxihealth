@@ -30,34 +30,28 @@ Route::get('/technology', ['uses' => 'TechnologyController@index']);
 Route::get('/technology/detail', ['uses' => 'TechnologyController@indexDetail']);
 Route::get('/technology/team', ['uses' => 'TechnologyController@team']);
 Route::get('/technology/team/detail', ['uses' => 'TechnologyController@teamDetail']);
+Route::get('/technology/achievements', ['uses' => 'TechnologyController@achievements']);
+Route::get('/technology/achievements/detail', ['uses' => 'TechnologyController@achievementsDetail']);
 
-Route::get('/technology/achievements', function () {
-    return view('technology.achievement');
-});
-Route::get('/technology/achievements/detail', function () {
-    return view('technology.achievementDetail');
-});
 //产业服务
-Route::get('/industry', function () {
-    return view('industry.index');
-});
-Route::get('/industry/detail', function () {
-    return view('industry.detail');
-});
+Route::get('/industry', ['uses' => 'IndustryController@index']);
+Route::get('/industry/detail', ['uses' => 'IndustryController@indexDetail']);
+Route::get('/industry/policy', ['uses' => 'IndustryController@policy']);
+Route::get('/industry/policy/detail', ['uses' => 'IndustryController@policyDetail']);
+Route::get('/industry/hatch', ['uses' => 'IndustryController@hatch']);
+Route::get('/industry/hatch/detail', ['uses' => 'IndustryController@hatchDetail']);
+Route::get('/industry/fund', ['uses' => 'IndustryController@fund']);
+Route::get('/industry/fund/detail', ['uses' => 'IndustryController@fundDetail']);
 //合作交流
-Route::get('/cooperation', function () {
-    return view('cooperation.index');
-});
-Route::get('/cooperation/detail', function () {
-    return view('cooperation.detail');
-});
+Route::get('/cooperation', ['uses' => 'CooperationController@index']);
+Route::get('/cooperation/detail', ['uses' => 'CooperationController@indexDetail']);
+Route::get('/cooperation/out', ['uses' => 'CooperationController@out']);
+Route::get('/cooperation/out/detail', ['uses' => 'CooperationController@outDetail']);
 //联系我们
-Route::get('/contact', function () {
-    return view('contact.index');
-});
-Route::get('/contact/form', function () {
-    return view('contact.form');
-});
+Route::get('/contact', ['uses' => 'ContactController@index']);
+Route::get('/contact/detail', ['uses' => 'ContactController@indexDetail']);
+Route::get('/contact/form', ['uses' => 'ContactController@form']);
+
 
 
 //网站后台

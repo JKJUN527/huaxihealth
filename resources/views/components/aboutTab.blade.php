@@ -10,6 +10,6 @@
         </ul>
     </div>
     <div class="contact">
-        <a href="/contact"><img src="{{asset('images/tel.jpg')}}" /></a>
+        <a href="/contact/form"><img src="{{asset('images/tel.jpg')}}" /></a>
     </div>
 </div>
