@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', '发展战略|成都华西精准医学产业技术研究院')
+@section('title', '新闻中心|成都华西精准医学产业技术研究院')
 
 @section('header-nav')
     @include('components.headerNav')
@@ -16,18 +16,20 @@
     <div class="i_content">
         <div class="adr_wrap">
             <div class="adr">
-                <span class="adr_link"><a href="/">首   页</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<a href="/about">关于我们</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;发展战略</span>
+                <span class="adr_link"><a href="/">首   页</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;<a href="/news">新闻中心</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;公告详情</span>
             </div>
         </div>
         <div class="c_area">
-            @include('components.aboutTab',['index'=>5])
+            @include('components.newsTab',['index'=>2])
             <div class="right_content">
-                <div class="con_title">大事记详情</div>
+                <div class="con_title">公示公告</div>
                 <div class="con_box">
-                    <p style="text-align: center"><span style="font-size: 22px"><span><strong><span>成都华西精准医学产业技术研究院发展战略</span></strong></span></span></p>
                     <div class="ny_tdbk">
+                        <div class="ny_jlxqt">{{$data['detail']->title}}</div>
+                        <div class="ny_jlxqxt">发布时间：<font>{{$data['detail']->created_at}}</font>&nbsp;&nbsp;&nbsp;</div>
                         <div class="ny_jlxqjj">
-                            {!! $data['webinfo']->strategy_content !!}
+                            <br>
+                            {!! $data['detail']->content !!}
                         </div>
                     </div>
                 </div>

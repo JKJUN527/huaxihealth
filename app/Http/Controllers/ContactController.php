@@ -20,7 +20,7 @@ class ContactController extends Controller {
 
         $data['data'] = Recruit::orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('contact.index', ['data' => $data]);
     }
     //联系方式
@@ -44,6 +44,7 @@ class ContactController extends Controller {
                 $data['detail']->contact_content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->contact_content);
             }
         }
+        $data['aboutinfo'] = About::first();
         return view('contact.form',['data'=>$data]);
     }
     public function indexDetail(Request $request){
@@ -67,6 +68,7 @@ class ContactController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
+            $data['aboutinfo'] = About::first();
             return view('contact.detail',['data'=>$data]);
         }
         return $this->index();

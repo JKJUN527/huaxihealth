@@ -134,6 +134,8 @@ class TechnologyController extends Controller {
         //保存都数据库
         $new->name = $request->input('name');
         $new->academic_title = $request->input('academic');
+        $new->direction = $request->input('direction');
+        $new->title = $request->input('title');
         $new->type = $request->input('type');
         $new->education = $request->input('education');
         $new->brief = $request->input('brief');

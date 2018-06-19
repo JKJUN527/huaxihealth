@@ -118,17 +118,17 @@
                             </div>
                             <label id="brief-error" class="error" for="brief"></label>
                         </div>
-                        <label for="type">所属类别</label>
-                        <div class="form-group">
+                        {{--<label for="type">所属类别</label>--}}
+                        {{--<div class="form-group">--}}
                             {{--如果想要添加动态查找，向select中添加属性：data-live-search="true"--}}
-                            <select class="form-control show-tick selectpicker"
-                                    id="type" name="type">
-                                <option value="-1">请选择成员分类</option>
-                                <option value="0">主任委员</option>
-                                <option value="1">委员</option>
-                            </select>
-                            <label id="type-error" class="error" for="type"></label>
-                        </div>
+                            {{--<select class="form-control show-tick selectpicker"--}}
+                                    {{--id="type" name="type">--}}
+                                {{--<option value="-1">请选择成员分类</option>--}}
+                                {{--<option value="0">主任委员</option>--}}
+                                {{--<option value="1">委员</option>--}}
+                            {{--</select>--}}
+                            {{--<label id="type-error" class="error" for="type"></label>--}}
+                        {{--</div>--}}
                         <label for="picture">头像</label>
                         <div class="input-group">
                             <div class="form-line">
@@ -247,12 +247,12 @@
             } else {
                 removeError(brief, 'brief');
             }
-            if (type.val() === "-1") {
-                setError(type, 'type', '请选择类别');
-                return;
-            } else {
-                removeError(type, 'type');
-            }
+//            if (type.val() === "-1") {
+//                setError(type, 'type', '请选择类别');
+//                return;
+//            } else {
+//                removeError(type, 'type');
+//            }
             if (file.prop("files")[0] === undefined) {
                 console.log("file is empty");
                 setError(file, 'picture', "请上传头像，像素大于200*200");
@@ -265,7 +265,7 @@
             formData.append("name", name.val());
             formData.append("byname", byname.val());
             formData.append("brief", Content);
-            formData.append("type", type.val());
+//            formData.append("type", type.val());
             formData.append('picture', file.prop("files")[0]);
 
             $.ajax({

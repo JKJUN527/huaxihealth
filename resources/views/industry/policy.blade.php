@@ -48,7 +48,7 @@
                                             {{$new->title}}
                                         </a><span style="float:right">{{substr($new->created_at,0,10)}}</span></div>
                                     <div class="ny_dtimjj">
-                                        {{mb_substr(strip_tags($new->content),0,120,'utf-8')}}
+                                        {{--{{mb_substr(strip_tags($new->content),0,120,'utf-8')}}--}}
                                         <a href="/industry/policy/detail?nid={{$new->id}}">[详情]</a>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
     </div>
 @endsection
 @section('footer')
-    @include('components.footer')
+    @include('components.footer',['about'=>$data['aboutinfo']])
 @endsection
 @section('custom-script')
 @endsection

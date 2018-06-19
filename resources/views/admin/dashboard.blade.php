@@ -30,10 +30,10 @@
                     <dd><span>{{$data['webinfo']->email or '邮箱未填写'}}</span>
                     </dd>
                 </dl>
-                <dl>
-                    <dt><span>传真</span></dt>
-                    <dd><span>{{$data['webinfo']->fax or '传真未填写'}}</span></dd>
-                </dl>
+                {{--<dl>--}}
+                    {{--<dt><span>传真</span></dt>--}}
+                    {{--<dd><span>{{$data['webinfo']->fax or '传真未填写'}}</span></dd>--}}
+                {{--</dl>--}}
 
                 <dl>
                     <dt><span>地址</span></dt>
@@ -61,9 +61,9 @@
         <button class="btn bg-teal waves-effect"
                 data-toggle="modal" data-target="#setEmailModal">修改公司邮箱
         </button>
-        <button class="btn bg-teal waves-effect"
-                data-toggle="modal" data-target="#setFaxModal">修改公司传真
-        </button>
+        {{--<button class="btn bg-teal waves-effect"--}}
+                {{--data-toggle="modal" data-target="#setFaxModal">修改公司传真--}}
+        {{--</button>--}}
         <button class="btn bg-teal waves-effect"
                 data-toggle="modal" data-target="#setCodeModal">修改邮编
         </button>

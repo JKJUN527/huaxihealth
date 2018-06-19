@@ -51,7 +51,7 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>内容</th>
+                            <th>标题</th>
                             <th>发布时间</th>
                             <th>操作</th>
                         </tr>
@@ -61,7 +61,7 @@
                             <tr>
                                 <td>{{$note->id}}</td>
                                 <td>
-                                    {{$note->content}}
+                                    {{$note->title}}
                                 </td>
                                 <td>{{$note->created_at}}</td>
                                 <td>
@@ -91,6 +91,14 @@
                 <form role="form" method="post" id="add_notes_form">
                     <div class="modal-body">
 
+                        <label for="title">公告内容</label>
+                        <div class="input-group">
+                            <div class="form-line">
+                                <input type="text" id="title" name="title" class="form-control" placeholder="公告标题">
+                            </div>
+                            <label id="title-error" class="error" for="title"></label>
+                        </div>
+
                         <label for="content">公告内容</label>
                         <div class="input-group">
                             <div class="form-line">
@@ -115,17 +123,35 @@
         $("#add_notes_form").submit(function (event) {
             event.preventDefault();
 
+            var title = $("#title");
             var content = $("#content");
 
-            if (content.val() === '') {
+            if (title.val() === '') {
+                setError(title, 'title', '不能为空');
+                return;
+            } else {
+                removeError(title, 'title');
+            }
+            var testContent = content.val().replace(/\r\n/g, '');
+            testContent = testContent.replace(/\n/g, '');
+            testContent = testContent.replace(/\s/g, '');
+
+            if (testContent === '') {
                 setError(content, 'content', '不能为空');
                 return;
             } else {
                 removeError(content, 'content');
             }
+            // 将content中的换行 "\r\n" 或者 "\n" 换成 <br>
+            // '\s'空格替换成"&nbsp;"
+            // 这样可以保持新闻内容的编辑格式
+            var newsContent = content.val().replace(/\r\n/g, '<br>');
+            newsContent = newsContent.replace(/\n/g, '<br>');
+            newsContent = newsContent.replace(/\s/g, '&nbsp;');
 
             var formData = new FormData();
-            formData.append("content", content.val());
+            formData.append("title", title.val());
+            formData.append("content", newsContent);
 
             $.ajax({
                 url: "/admin/notes/add",

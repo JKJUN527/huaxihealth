@@ -126,7 +126,7 @@
                 <ul class="infoList">
                     @forelse($data['notes'] as $note)
                         <li>
-                            {{$note->content}}
+                            <a href="/news/notes/detail?nid={{$note->id}}" target="_blank">{{$note->title}}</a>
                             <span class="date">{{mb_substr($note->created_at,0,10,'utf-8')}}</span>
                         </li>
                     @empty
@@ -151,7 +151,7 @@
 </div>
 @endsection
 @section('footer')
-    @include('components.footer')
+    @include('components.footer',['about'=>$data['aboutinfo']])
 @endsection
 @section('custom-script')
 @endsection

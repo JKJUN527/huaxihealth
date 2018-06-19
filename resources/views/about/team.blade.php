@@ -237,7 +237,7 @@
     </div>
 @endsection
 @section('footer')
-    @include('components.footer')
+    @include('components.footer',['about'=>$data['aboutinfo']])
 @endsection
 @section('custom-script')
     {{--<script type="text/javascript" src="{{asset('js/jquery.js')}}" ></script>--}}

@@ -69,7 +69,7 @@
     </div>
 @endsection
 @section('footer')
-    @include('components.footer')
+    @include('components.footer',['about'=>$data['aboutinfo']])
 @endsection
 @section('custom-script')
 @endsection

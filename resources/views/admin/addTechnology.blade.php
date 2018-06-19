@@ -131,6 +131,20 @@
                             </div>
                             <label id="academic-error" class="error" for="academic"></label>
                         </div>
+                        <div class="input-group">
+                            <div class="form-line">
+                                <input type="text" id="direction" name="direction" class="form-control"
+                                       placeholder="研究方向">
+                            </div>
+                            <label id="direction-error" class="error" for="direction"></label>
+                        </div>
+                        <div class="input-group">
+                            <div class="form-line">
+                                <input type="text" id="title" name="title" class="form-control"
+                                       placeholder="技术职称">
+                            </div>
+                            <label id="title-error" class="error" for="title"></label>
+                        </div>
 
                         <div class="form-group">
                             {{--如果想要添加动态查找，向select中添加属性：data-live-search="true"--}}
@@ -346,6 +360,8 @@
 
             var name = $("#name");
             var academic = $("#academic");
+            var direction = $("#direction");
+            var title = $("#title");
             var education = $("#education");
             var type = $("#type");
 
@@ -363,6 +379,18 @@
                 return;
             } else {
                 removeError(academic, 'academic');
+            }
+            if (direction.val() === '') {
+                setError(direction, 'direction', "研究方向不能为空");
+                return;
+            } else {
+                removeError(direction, 'direction');
+            }
+            if (title.val() === '') {
+                setError(title, 'title', "技术职称不能为空");
+                return;
+            } else {
+                removeError(title, 'title');
             }
             if (education.val() == -1) {
                 swal("","请选择委员学历","error");
@@ -385,6 +413,8 @@
             var formData = new FormData();
             formData.append("name", name.val());
             formData.append("academic", academic.val());
+            formData.append("direction", direction.val());
+            formData.append("title", title.val());
             formData.append("education", education.val());
             formData.append("type", type.val());
 

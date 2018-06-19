@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\News;
+use App\About;
 use App\Notes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -21,14 +22,14 @@ class NewsController extends Controller {
         $data['news'] = News::where('statue',0)
             ->orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('news.index', ['data' => $data]);
     }
     public function notes(Request $request) {
 
         $data['notes'] = Notes::orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('news.notes', ['data' => $data]);
     }
     public function detail(Request $request){
@@ -52,9 +53,20 @@ class NewsController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
+            $data['aboutinfo'] = About::first();
             return view('news.detail',['data'=>$data]);
         }
         return $this->index();
+    }
+    public function notesDetail(Request $request){
+        if($request->has('nid')){
+            $id = $request->input('nid');
+            $data['detail'] = Notes::find($id);
+
+            $data['aboutinfo'] = About::first();
+            return view('news.notesDetail',['data'=>$data]);
+        }
+        return $this->notes();
     }
     public function datebookDetail(Request $request){
         if($request->has('id')){
@@ -78,7 +90,7 @@ class NewsController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
-
+            $data['aboutinfo'] = About::first();
             return view('about.detail', ['data' => $data]);
         }else{
             return $this->datebook();
@@ -104,6 +116,7 @@ class NewsController extends Controller {
                 $data['webinfo']->strategy_content = str_replace($search,$replace,$data['webinfo']->strategy_content);
             }
         }
+        $data['aboutinfo'] = About::first();
         return view('about.development', ['data' => $data]);
     }
 }

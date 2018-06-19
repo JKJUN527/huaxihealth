@@ -24,13 +24,14 @@ class TechnologyController extends Controller {
 
         $data['teamfirst'] = Committee::where('type',0)->get();
         $data['teamsecend'] = Committee::where('type',1)->get();
-
+        $data['aboutinfo'] = About::first();
         return view('technology.index', ['data' => $data]);
     }
     public function indexDetail(Request $request){
         if($request->has('id')){
             $id = $request->input('id');
             $data['info'] = Committee::find($id);
+            $data['aboutinfo'] = About::first();
             return view('technology.indexDetail',['data'=>$data]);
         }
         return $this->index();
@@ -39,13 +40,13 @@ class TechnologyController extends Controller {
 
         $data['team'] = Technologyteam::orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('technology.team', ['data' => $data]);
     }
     public function achievements(){
         $data['achievements'] = Achievements::orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('technology.achievement', ['data' => $data]);
     }
     public function teamDetail(Request $request){
@@ -69,6 +70,7 @@ class TechnologyController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
+            $data['aboutinfo'] = About::first();
             return view('technology.teamDetail',['data'=>$data]);
         }
         return $this->team();
@@ -94,6 +96,7 @@ class TechnologyController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
+            $data['aboutinfo'] = About::first();
             return view('technology.achievementDetail',['data'=>$data]);
         }
         return $this->achievements();

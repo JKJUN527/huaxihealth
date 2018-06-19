@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
 use App\Cooperation;
 use App\Http\Controllers\Controller;
 use App\Industry;
@@ -30,6 +31,7 @@ class HomeController extends Controller {
         $data['cooperation'] = Cooperation::orderBy('created_at','desc')
             ->take(6)
             ->get();
+        $data['aboutinfo'] = About::first();
 
         return view('index', ['data' => $data]);
     }

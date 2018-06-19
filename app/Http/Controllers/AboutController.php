@@ -20,16 +20,19 @@ class AboutController extends Controller {
     public function index(Request $request) {
 
         $data['webinfo'] = About::select('ebrief')->first();
+        $data['aboutinfo'] = About::first();
 
         return view('about.index', ['data' => $data]);
     }
     public function team(){
         $data['team'] = Team::all();
+        $data['aboutinfo'] = About::first();
 
         return view('about.team', ['data' => $data]);
     }
     public function structure(){
         $data['webinfo'] = About::select('structure')->first();
+        $data['aboutinfo'] = About::first();
 
         return view('about.structure', ['data' => $data]);
     }
@@ -37,7 +40,7 @@ class AboutController extends Controller {
         $data['datebook'] = Datebook::where('statue',0)
             ->orderBy('created_at','desc')
             ->paginate(12);
-
+        $data['aboutinfo'] = About::first();
         return view('about.datebook', ['data' => $data]);
     }
     public function datebookDetail(Request $request){
@@ -62,7 +65,7 @@ class AboutController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
-
+            $data['aboutinfo'] = About::first();
             return view('about.detail', ['data' => $data]);
         }else{
             return $this->datebook();
@@ -88,6 +91,7 @@ class AboutController extends Controller {
                 $data['webinfo']->strategy_content = str_replace($search,$replace,$data['webinfo']->strategy_content);
             }
         }
+        $data['aboutinfo'] = About::first();
         return view('about.development', ['data' => $data]);
     }
 }

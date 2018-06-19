@@ -51,7 +51,7 @@ class AboutController extends Controller {
         }
         $team->name = $request->input('name');
         $team->byname = $request->input('byname');
-        $team->type = $request->input('type');
+//        $team->type = $request->input('type');
         $team->brief = $request->input('brief');
         if($team->save()){
             $data['status'] = 200;

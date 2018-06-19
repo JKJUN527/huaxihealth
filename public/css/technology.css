@@ -43,6 +43,7 @@
 .team-detail .team-head .team-info {
     overflow: hidden;
     padding-left: 40px;
+    min-height: 187px;
 }
 .team-detail .team-head .team-info h2 {
     color: #333;

@@ -46,7 +46,7 @@
     padding-left: 25px;
     position: absolute;
     left: 40px;
-    bottom: 5%;
+    bottom: 0;
     cursor: pointer;
 }
 
@@ -60,14 +60,16 @@
 .team-list h1 {
     font-size: 20px;
     color: #b4a38a;
-    display: inline-block;
+    /*display: inline-block;*/
     cursor: pointer;
+    margin-bottom: 0;
 }
 .team-list .h1-hover {
     color: #ff6b00;
 }
 .team-list p {
-    font-size: 13px;
+    text-indent: 0;
+    font-size: 16px;
     color: #333333;
     margin-top: 10px;
     line-height: 22px;

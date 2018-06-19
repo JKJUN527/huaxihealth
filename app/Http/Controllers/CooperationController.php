@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Cooperation;
 use App\CoopOut;
+use App\About;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +22,7 @@ class CooperationController extends Controller {
 
         $data['data'] = Cooperation::orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('cooperation.index', ['data' => $data]);
     }
     public function indexDetail(Request $request){
@@ -45,6 +46,7 @@ class CooperationController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
+            $data['aboutinfo'] = About::first();
             return view('cooperation.detail',['data'=>$data]);
         }
         return $this->index();
@@ -54,7 +56,7 @@ class CooperationController extends Controller {
 
         $data['data'] = CoopOut::orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('cooperation.out', ['data' => $data]);
     }
     public function outDetail(Request $request){
@@ -78,6 +80,7 @@ class CooperationController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
+            $data['aboutinfo'] = About::first();
             return view('cooperation.outDetail',['data'=>$data]);
         }
         return $this->out();

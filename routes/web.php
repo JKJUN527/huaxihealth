@@ -24,6 +24,7 @@ Route::get('/about/datebook/development', ['uses' => 'AboutController@developmen
 Route::get('/news', ['uses' => 'NewsController@index']);
 Route::get('/news/detail', ['uses' => 'NewsController@detail']);
 Route::get('/news/notes', ['uses' => 'NewsController@notes']);
+Route::get('/news/notes/detail', ['uses' => 'NewsController@notesDetail']);
 
 //科技研发
 Route::get('/technology', ['uses' => 'TechnologyController@index']);

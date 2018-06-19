@@ -117,6 +117,7 @@ class EditnewsController extends Controller {
             return redirect('admin/login');
         }
         $notes = new Notes();//新增公告
+        $notes->title = $request->input('title');
         $notes->content = $request->input('content');
         if($notes->save()){
             $data['status'] = 200;

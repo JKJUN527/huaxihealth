@@ -28,7 +28,7 @@ class IndustryController extends Controller {
 
         $data['data'] = Industry::orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('industry.index', ['data' => $data]);
     }
     public function indexDetail(Request $request){
@@ -52,6 +52,7 @@ class IndustryController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
+            $data['aboutinfo'] = About::first();
             return view('industry.detail',['data'=>$data]);
         }
         return $this->index();
@@ -61,7 +62,7 @@ class IndustryController extends Controller {
 
         $data['data'] = Policy::orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('industry.policy', ['data' => $data]);
     }
     public function policyDetail(Request $request){
@@ -85,6 +86,7 @@ class IndustryController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
+            $data['aboutinfo'] = About::first();
             return view('industry.policyDetail',['data'=>$data]);
         }
         return $this->policy();
@@ -94,7 +96,7 @@ class IndustryController extends Controller {
 
         $data['data'] = Hatch::orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('industry.hatch', ['data' => $data]);
     }
     public function hatchDetail(Request $request){
@@ -118,6 +120,7 @@ class IndustryController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
+            $data['aboutinfo'] = About::first();
             return view('industry.hatchDetail',['data'=>$data]);
         }
         return $this->hatch();
@@ -127,7 +130,7 @@ class IndustryController extends Controller {
 
         $data['data'] = Fund::orderBy('created_at','desc')
             ->paginate(10);
-
+        $data['aboutinfo'] = About::first();
         return view('industry.fund', ['data' => $data]);
     }
     public function fundDetail(Request $request){
@@ -151,6 +154,7 @@ class IndustryController extends Controller {
                     $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
                 }
             }
+            $data['aboutinfo'] = About::first();
             return view('industry.fundDetail',['data'=>$data]);
         }
         return $this->fund();

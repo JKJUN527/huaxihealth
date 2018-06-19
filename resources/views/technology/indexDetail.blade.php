@@ -58,9 +58,17 @@
                                                 @endif
                                             </span>
                                         </p>
-                                        <p>研究方向：<span></span></p>
-                                        <p>Email：<span></span></p>
-                                        <p>电话：<span></span></p>
+                                        <p>研究方向：
+                                            <span>
+                                                {{$data['info']->direction}}
+                                            </span>
+                                        </p>
+                                        <p>技术职称：
+                                            <span>
+                                                {{$data['info']->title}}
+                                            </span>
+                                        </p>
+                                        {{--<p>电话：<span></span></p>--}}
                                         <!-- <p>地址：<span></span></p>
                                          <p>邮编：<span>网络空间安全</span></p>-->
                                     </div>
@@ -80,7 +88,7 @@
     </div>
 @endsection
 @section('footer')
-    @include('components.footer')
+    @include('components.footer',['about'=>$data['aboutinfo']])
 @endsection
 @section('custom-script')
 @endsection
