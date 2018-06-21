@@ -104,6 +104,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/contact'),
         ],
+        /*轮播图*/
+        'adpic' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/adpic'),
+        ],
 
         's3' => [
             'driver' => 's3',

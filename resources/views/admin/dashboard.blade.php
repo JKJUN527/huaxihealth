@@ -52,6 +52,31 @@
                         <span>{!! $data['webinfo']->ebrief or '无介绍' !!}</span>
                     </dd>
                 </dl>
+                <?php $links = explode(';',$data['webinfo']->link);?>
+                <dl>
+                    <dt><span>微博链接</span></dt>
+                    <dd>
+                        <span>{!! $links[0] or '无微博链接' !!}</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><span>搜狐链接</span></dt>
+                    <dd>
+                        <span>{!! $links[1] or '无搜狐链接' !!}</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><span>腾讯微博链接</span></dt>
+                    <dd>
+                        <span>{!! $links[2] or '无腾讯微博链接' !!}</span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><span>豆瓣链接</span></dt>
+                    <dd>
+                        <span>{!! $links[3] or '无豆瓣链接' !!}</span>
+                    </dd>
+                </dl>
             </div>
         </div>
 
@@ -74,6 +99,9 @@
         {{--<button class="btn bg-teal waves-effect">修改副标题</button>--}}
         <button class="btn bg-teal waves-effect"
                 data-toggle="modal" data-target="#setContentModal">修改公司简介
+        </button>
+        <button class="btn bg-teal waves-effect"
+                data-toggle="modal" data-target="#setLinkModal">修改外部链接
         </button>
 
     </div>
@@ -221,6 +249,56 @@
                                           placeholder="网站介绍"></textarea>
                             </div>
                             <label id="content-error" class="error" for="content"></label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary waves-effect">设置</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="setLinkModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">设置外部链接</h4>
+                </div>
+                <form role="form" method="post" id="set-link-form">
+                    <div class="modal-body">
+
+                        <div class="input-group">
+                            <div class="form-line">
+                                <input type="text" id="weibo" name="weibo" class="form-control"
+                                       value="{{$links[0]}}"
+                                       placeholder="微博链接(请以http://开头)">
+                            </div>
+                            <label id="weibo-error" class="error" for="weibo"></label>
+                        </div>
+                        <div class="input-group">
+                            <div class="form-line">
+                                <input type="text" id="sohu" name="sohu" class="form-control"
+                                       value="{{$links[1]}}"
+                                       placeholder="搜狐链接(请以http://开头)">
+                            </div>
+                            <label id="sohu-error" class="error" for="sohu"></label>
+                        </div>
+                        <div class="input-group">
+                            <div class="form-line">
+                                <input type="text" id="tengxun" name="tengxun" class="form-control"
+                                       value="{{$links[2]}}"
+                                       placeholder="腾讯微博链接(请以http://开头)">
+                            </div>
+                            <label id="tengxun-error" class="error" for="tengxun"></label>
+                        </div>
+                        <div class="input-group">
+                            <div class="form-line">
+                                <input type="text" id="douban" name="douban" class="form-control"
+                                       value="{{$links[3]}}"
+                                       placeholder="豆瓣链接(请以http://开头)">
+                            </div>
+                            <label id="douban-error" class="error" for="douban"></label>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -426,6 +504,37 @@
 
             $.ajax({
                 url: "/admin/about/setContent",
+                type: "post",
+                dataType: 'text',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: function (data) {
+                    $("#setContentModal").modal('toggle');
+                    var result = JSON.parse(data);
+
+                    checkResult(result.status, "修改成功", result.msg, null);
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1200);
+                }
+            })
+        });
+        $("#set-link-form").submit(function (event) {
+            event.preventDefault();
+            var weibo = $("#weibo");
+            var sohu = $("#sohu");
+            var tengxun = $("#tengxun");
+            var douban = $("#douban");
+
+            var link = weibo.val() + ';' +sohu.val()+ ';' +tengxun.val()+';'+douban.val();
+
+            var formData = new FormData();
+            formData.append("link", link);
+
+            $.ajax({
+                url: "/admin/about/setLink",
                 type: "post",
                 dataType: 'text',
                 cache: false,

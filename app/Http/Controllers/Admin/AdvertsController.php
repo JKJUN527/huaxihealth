@@ -53,9 +53,9 @@ class AdvertsController extends Controller {
                 $bool = Storage::disk('adpic')->put($picname, file_get_contents($realPath));
 
                 if($webinfo->picture == "")
-                    $webinfo->picture = $request->input('title'). "@" . asset('storage/adpic/' . $picname);
+                    $webinfo->picture = asset('storage/adpic/' . $picname);
                 else
-                    $webinfo->picture = $webinfo->picture . ";" . $request->input('title'). "@" . asset('storage/adpic/' . $picname);
+                    $webinfo->picture = $webinfo->picture . ";" . asset('storage/adpic/' . $picname);
 
             }
             if ($webinfo->save()) {
@@ -83,9 +83,9 @@ class AdvertsController extends Controller {
             $keyword = $request->input('keyword');
             $pics = explode(';', $webinfo->picture);
             $newpics = "";
-            foreach ($pics as $k=>$pic){
-                if(strpos($pic,$keyword) !== false){
-                    unset($pics[$k]);
+            foreach ($pics as $pic){
+                if($pic == $keyword){
+                    continue;
                 }else{
                     if($newpics == "")
                         $newpics = $pic;

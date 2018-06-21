@@ -83,6 +83,7 @@ Route::any('admin/about/setEmail', ['uses' => 'Admin\WebinfoController@setEmail'
 Route::any('admin/about/setAddress', ['uses' => 'Admin\WebinfoController@setAddress']);
 Route::any('admin/about/setContent', ['uses' => 'Admin\WebinfoController@setContent']);
 Route::any('admin/about/setadvantage', ['uses' => 'Admin\WebinfoController@setadvantage']);
+Route::any('admin/about/setLink', ['uses' => 'Admin\WebinfoController@setLink']);
 //关于我们
 Route::get('admin/about/team', ['uses' => 'Admin\AboutController@index']);//显示团队介绍
 Route::post('admin/about/team/add', ['uses' => 'Admin\AboutController@teamAdd']);//新增团队介绍
@@ -146,3 +147,11 @@ Route::get('admin/contact/Del', ['uses' => 'Admin\ContactController@contactDel']
 Route::get('admin/contact/addContact', ['uses' => 'Admin\ContactController@addContactIndex']);//添加界面
 Route::post('admin/contact/addContact', ['uses' => 'Admin\ContactController@addContactPost']);//添加界面
 Route::post('admin/contact/editContact', ['uses' => 'Admin\ContactController@editContactPost']);//添加界面
+//首页轮播图
+Route::get('admin/addAds', ['uses' => 'Admin\AdvertsController@addAdView']);//显示已发布广告信息
+
+Route::any('admin/ads', ['uses' => 'Admin\AdvertsController@index']);//显示已发布广告信息
+Route::any('admin/ads/detail', ['uses' => 'Admin\AdvertsController@detail']);//显示已发布广告信息
+Route::any('admin/ads/add', ['uses' => 'Admin\AdvertsController@addAds']);//新增或修改广告信息
+Route::any('admin/ads/find', ['uses' => 'Admin\AdvertsController@findAd']);//查找location位置是否有广告
+Route::any('admin/ads/del', ['uses' => 'Admin\AdvertsController@delAd']);//删除广告

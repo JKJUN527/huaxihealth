@@ -12,6 +12,19 @@
         nav{
             text-align: center;
         }
+        .bdshare-button-style0-32 a {
+            float: left;
+            width: 32px;
+            line-height: 32px;
+            height: 32px;
+            background-image: url(../img/share/icons_0_32.png?v=7f3ed0f4.png);
+            background-repeat: no-repeat;
+            cursor: pointer;
+            margin: 6px 6px 6px 0;
+            text-indent: -100em;
+            overflow: hidden;
+            color: #3a8ceb;
+        }
     </style>
     @section('custom-style')
     @show

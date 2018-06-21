@@ -93,20 +93,20 @@
                                 <input type="file" id="picture-big" name="picture-big" class="form-control"
                                        onchange='showBigPreview(this)'/>
                             </div>
-                            <div class="help-info" for="picture-big">.jpg 或 .png格式，200×200 像素</div>
+                            <div class="help-info" for="picture-big">.jpg 或 .png格式，1583×560 像素</div>
                             <label id="picture-big-error" class="error" for="picture-big"></label>
                         </div>
 
                         <div id="preview-holder-big" class="preview-holder">
                         </div>
 
-                        <div class="input-group">
-                            <div class="form-line">
-                                <input type="text" id="title-big" name="title-big" class="form-control"
-                                       placeholder="标题,例如车间图">
-                            </div>
-                            <label id="title-big-error" class="error" for="title-big"></label>
-                        </div>
+                        {{--<div class="input-group">--}}
+                            {{--<div class="form-line">--}}
+                                {{--<input type="text" id="title-big" name="title-big" class="form-control"--}}
+                                       {{--placeholder="标题,例如车间图">--}}
+                            {{--</div>--}}
+                            {{--<label id="title-big-error" class="error" for="title-big"></label>--}}
+                        {{--</div>--}}
 
                         <button type="submit"
                                 class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-blue-sky">
@@ -167,13 +167,13 @@
                         var height = image.height;
                         console.log(width + "//" + height);
 
-                        if (width < 1580 || height < 450) {
+                        if (width != 1583 || height != 560) {
                             isCorrect = false;
                             $("#picture-big").val("");
                             swal({
                                 title: "错误",
                                 type: "error",
-                                text: "当前选择图片分辨率为: " + width + "px * " + height + "px \n大图片广告分辨率应为 1580像素 * 450像素",
+                                text: "当前选择图片分辨率为: " + width + "px * " + height + "px \n轮播图分辨率应为 1583像素 * 560像素",
                                 cancelButtonText: "关闭",
                                 showCancelButton: true,
                                 showConfirmButton: false
@@ -213,26 +213,25 @@
             event.preventDefault();
 
             var file = $("#picture-big");
-            var title = $("input[name='title-big']");
+//            var title = $("input[name='title-big']");
 
-            if (title.val() === '') {
-                setError(title, 'title-big', "不能为空");
-                return;
-            } else {
-                removeError(title, 'title-big');
-            }
+//            if (title.val() === '') {
+//                setError(title, 'title-big', "不能为空");
+//                return;
+//            } else {
+//                removeError(title, 'title-big');
+//            }
 
             var formData = new FormData();
 
             if (file.prop("files")[0] === undefined) {
                 console.log("file is empty");
-                setError(file, 'picture-big', "请上传广告图片1580像素 * 450像素");
+                setError(file, 'picture-big', "请上传广告图片1583像素 * 560像素");
                 return;
             } else {
                 removeError(file, 'picture-big');
                 formData.append('adpic', file.prop("files")[0]);
             }
-            formData.append('title', title.val());
 
             $.ajax({
                 url: "/admin/ads/add",

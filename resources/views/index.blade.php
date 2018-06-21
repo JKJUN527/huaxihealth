@@ -20,11 +20,14 @@
 <div class="banner">
     <div class="bd">
         <ul>
-            <li class="first"><a href="javascript:void(0);"></a></li>
-            <li class="second"><a href="javascript:void(0);"></a></li>
-            <li class="third"><a href="javascript:void(0);"></a></li>
-            <li class="fourth"><a href="javascript:void(0);"></a></li>
-            <li class="fifth"><a href="javascript:void(0);"></a></li>
+            <?php $picturs = explode(';',$data['aboutinfo']->picture);?>
+            @foreach($picturs as $pic)
+                <li class="first" style="background: url({{$pic}}) center center no-repeat"><a href="javascript:void(0);"></a></li>
+            @endforeach
+            {{--<li class="second"><a href="javascript:void(0);"></a></li>--}}
+            {{--<li class="third"><a href="javascript:void(0);"></a></li>--}}
+            {{--<li class="fourth"><a href="javascript:void(0);"></a></li>--}}
+            {{--<li class="fifth"><a href="javascript:void(0);"></a></li>--}}
         </ul>
     </div>
     <div class="hd"><ul></ul></div>

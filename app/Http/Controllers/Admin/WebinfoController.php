@@ -138,6 +138,24 @@ class WebinfoController extends Controller {
 
     return $data;
     }
+    public function setLink(Request $request) {
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0) {
+            return redirect('admin/login');
+        }
+
+        $webinfo = About::find(1);
+        $webinfo->link = $request->input('link');
+
+        if ($webinfo->save()) {
+            $data['status'] = 200;
+        } else {
+            $data['status'] = 400;
+            $data['msg'] = "设置失败";
+        }
+
+        return $data;
+    }
 
     //修改网站信息
     public function setWebinfo(Request $request) {

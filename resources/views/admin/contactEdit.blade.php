@@ -110,10 +110,10 @@
 
                         <div class="news-content--title">
                             <h6>详情</h6>
-                            {{--<a id="insert-image" onclick="insertImage(this)"--}}
-                               {{--class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-link">--}}
-                                {{--插入图片--}}
-                            {{--</a>--}}
+                            <a id="insert-image" onclick="insertImage(this)"
+                               class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-link">
+                                插入图片
+                            </a>
                         </div>
 
                         <div class="input-group">

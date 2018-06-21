@@ -15,6 +15,32 @@
                         <span>网站信息</span>
                     </a>
                 </li>
+                <li
+                        @if($title === 'ad')
+                        class="active"
+                        @endif
+                >
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">business_center</i>
+                        <span>首页轮播图</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li
+                                @if($subtitle === 'adList')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/ads">轮播图列表</a>
+                        </li>
+                        <li
+                                @if($subtitle === 'addAds')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/addAds">新增轮播照片</a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li
                         @if($title === 'admin')
