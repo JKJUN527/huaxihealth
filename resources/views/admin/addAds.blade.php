@@ -93,7 +93,7 @@
                                 <input type="file" id="picture-big" name="picture-big" class="form-control"
                                        onchange='showBigPreview(this)'/>
                             </div>
-                            <div class="help-info" for="picture-big">.jpg 或 .png格式，1583×560 像素</div>
+                            <div class="help-info" for="picture-big">.jpg 或 .png格式，1583×800 像素</div>
                             <label id="picture-big-error" class="error" for="picture-big"></label>
                         </div>
 
@@ -167,13 +167,13 @@
                         var height = image.height;
                         console.log(width + "//" + height);
 
-                        if (width != 1583 || height != 560) {
+                        if (width != 1583 || height > 800 || height < 560) {
                             isCorrect = false;
                             $("#picture-big").val("");
                             swal({
                                 title: "错误",
                                 type: "error",
-                                text: "当前选择图片分辨率为: " + width + "px * " + height + "px \n轮播图分辨率应为 1583像素 * 560像素",
+                                text: "当前选择图片分辨率为: " + width + "px * " + height + "px \n轮播图分辨率应为 1583像素 * 800像素",
                                 cancelButtonText: "关闭",
                                 showCancelButton: true,
                                 showConfirmButton: false
@@ -226,7 +226,7 @@
 
             if (file.prop("files")[0] === undefined) {
                 console.log("file is empty");
-                setError(file, 'picture-big', "请上传广告图片1583像素 * 560像素");
+                setError(file, 'picture-big', "请上传广告图片1583像素 * 800像素");
                 return;
             } else {
                 removeError(file, 'picture-big');

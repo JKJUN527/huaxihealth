@@ -54,29 +54,33 @@
                 </dl>
                 <?php $links = explode(';',$data['webinfo']->link);?>
                 <dl>
-                    <dt><span>微博链接</span></dt>
-                    <dd>
-                        <span>{!! $links[0] or '无微博链接' !!}</span>
-                    </dd>
+                    <dt><span>友情链接</span></dt>
+                    @foreach($links as $item)
+                        <?php $link = explode('@',$item);?>
+                        <dd>
+                            <span style="color: crimson;" data-content="{{$link[0]}}" name="del-link">删除</span>
+                            <span>{!! $link[0] or '无微博链接' !!}:{{$link[1]}}</span>
+                        </dd>
+                    @endforeach
                 </dl>
-                <dl>
-                    <dt><span>搜狐链接</span></dt>
-                    <dd>
-                        <span>{!! $links[1] or '无搜狐链接' !!}</span>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt><span>腾讯微博链接</span></dt>
-                    <dd>
-                        <span>{!! $links[2] or '无腾讯微博链接' !!}</span>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt><span>豆瓣链接</span></dt>
-                    <dd>
-                        <span>{!! $links[3] or '无豆瓣链接' !!}</span>
-                    </dd>
-                </dl>
+                {{--<dl>--}}
+                    {{--<dt><span>搜狐链接</span></dt>--}}
+                    {{--<dd>--}}
+                        {{--<span>{!! $links[1] or '无搜狐链接' !!}</span>--}}
+                    {{--</dd>--}}
+                {{--</dl>--}}
+                {{--<dl>--}}
+                    {{--<dt><span>腾讯微博链接</span></dt>--}}
+                    {{--<dd>--}}
+                        {{--<span>{!! $links[2] or '无腾讯微博链接' !!}</span>--}}
+                    {{--</dd>--}}
+                {{--</dl>--}}
+                {{--<dl>--}}
+                    {{--<dt><span>豆瓣链接</span></dt>--}}
+                    {{--<dd>--}}
+                        {{--<span>{!! $links[3] or '无豆瓣链接' !!}</span>--}}
+                    {{--</dd>--}}
+                {{--</dl>--}}
             </div>
         </div>
 
@@ -101,7 +105,7 @@
                 data-toggle="modal" data-target="#setContentModal">修改公司简介
         </button>
         <button class="btn bg-teal waves-effect"
-                data-toggle="modal" data-target="#setLinkModal">修改外部链接
+                data-toggle="modal" data-target="#setLinkModal">新增友情链接
         </button>
 
     </div>
@@ -263,42 +267,25 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">设置外部链接</h4>
+                    <h4 class="modal-title">新增外部链接</h4>
                 </div>
                 <form role="form" method="post" id="set-link-form">
                     <div class="modal-body">
-
                         <div class="input-group">
                             <div class="form-line">
-                                <input type="text" id="weibo" name="weibo" class="form-control"
-                                       value="{{$links[0]}}"
-                                       placeholder="微博链接(请以http://开头)">
+                                <input type="text" id="link-name" name="link-name" class="form-control"
+                                       value=""
+                                       placeholder="友情链接名称">
                             </div>
-                            <label id="weibo-error" class="error" for="weibo"></label>
+                            <label id="link-name-error" class="error" for="link-name"></label>
                         </div>
                         <div class="input-group">
                             <div class="form-line">
-                                <input type="text" id="sohu" name="sohu" class="form-control"
-                                       value="{{$links[1]}}"
-                                       placeholder="搜狐链接(请以http://开头)">
+                                <input type="text" id="link-url" name="link-url" class="form-control"
+                                       value=""
+                                       placeholder="链接(请以http://开头)">
                             </div>
-                            <label id="sohu-error" class="error" for="sohu"></label>
-                        </div>
-                        <div class="input-group">
-                            <div class="form-line">
-                                <input type="text" id="tengxun" name="tengxun" class="form-control"
-                                       value="{{$links[2]}}"
-                                       placeholder="腾讯微博链接(请以http://开头)">
-                            </div>
-                            <label id="tengxun-error" class="error" for="tengxun"></label>
-                        </div>
-                        <div class="input-group">
-                            <div class="form-line">
-                                <input type="text" id="douban" name="douban" class="form-control"
-                                       value="{{$links[3]}}"
-                                       placeholder="豆瓣链接(请以http://开头)">
-                            </div>
-                            <label id="douban-error" class="error" for="douban"></label>
+                            <label id="link-url-error" class="error" for="link-url"></label>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -523,18 +510,53 @@
         });
         $("#set-link-form").submit(function (event) {
             event.preventDefault();
-            var weibo = $("#weibo");
-            var sohu = $("#sohu");
-            var tengxun = $("#tengxun");
-            var douban = $("#douban");
+            var linkurl = $("#link-url");
+            var linkname = $("#link-name");
 
-            var link = weibo.val() + ';' +sohu.val()+ ';' +tengxun.val()+';'+douban.val();
+            if (linkname.val() === '') {
+                setError(linkname, 'link-name', "不能为空");
+                return;
+            } else {
+                removeError(linkname, 'link-name');
+            }
+
+            if (linkurl.val() === '') {
+                setError(linkurl, 'link-url', "不能为空");
+                return;
+            } else {
+                removeError(linkurl, 'link-url');
+            }
+
+            var link = linkname.val() + '@' +linkurl.val();
 
             var formData = new FormData();
             formData.append("link", link);
 
             $.ajax({
                 url: "/admin/about/setLink",
+                type: "post",
+                dataType: 'text',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: function (data) {
+                    $("#setContentModal").modal('toggle');
+                    var result = JSON.parse(data);
+
+                    checkResult(result.status, "修改成功", result.msg, null);
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1200);
+                }
+            })
+        });
+        $('span[name="del-link"]').click(function () {
+            var keyword = $(this).attr('data-content');
+            var formData = new FormData();
+            formData.append("linkname", keyword);
+            $.ajax({
+                url: "/admin/about/delLink",
                 type: "post",
                 dataType: 'text',
                 cache: false,

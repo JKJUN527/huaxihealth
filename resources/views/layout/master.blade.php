@@ -8,6 +8,9 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
     <link href="{{asset('plugins/bootstrap/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('style/iconfont/iconfont.css')}}" rel='stylesheet' type='text/css' />
+    <script src="{{asset('plugins/layer/layer.js')}}"></script>
+    <link href="{{asset('plugins/layer/theme/default/layer.css')}}" rel='stylesheet' type='text/css' />
     <style>
         nav{
             text-align: center;
@@ -44,6 +47,7 @@
 @section('footer')
 @show
 <script type="text/javascript" src="{{asset('js/jquery-1.11.0.min.js')}}" ></script>
+{{--<script type="text/javascript" src="{{asset('js/jquery.js')}}" ></script>--}}
 <script type="text/javascript" src="{{asset('js/jquery.SuperSlide.2.1.js')}}" ></script>
 <script type="text/javascript" src="{{asset('js/common.js')}}" ></script>
 <script type="text/javascript">

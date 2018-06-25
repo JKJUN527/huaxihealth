@@ -84,6 +84,7 @@ Route::any('admin/about/setAddress', ['uses' => 'Admin\WebinfoController@setAddr
 Route::any('admin/about/setContent', ['uses' => 'Admin\WebinfoController@setContent']);
 Route::any('admin/about/setadvantage', ['uses' => 'Admin\WebinfoController@setadvantage']);
 Route::any('admin/about/setLink', ['uses' => 'Admin\WebinfoController@setLink']);
+Route::any('admin/about/delLink', ['uses' => 'Admin\WebinfoController@delLink']);
 //关于我们
 Route::get('admin/about/team', ['uses' => 'Admin\AboutController@index']);//显示团队介绍
 Route::post('admin/about/team/add', ['uses' => 'Admin\AboutController@teamAdd']);//新增团队介绍

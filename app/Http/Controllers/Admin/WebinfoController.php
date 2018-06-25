@@ -145,8 +145,10 @@ class WebinfoController extends Controller {
         }
 
         $webinfo = About::find(1);
-        $webinfo->link = $request->input('link');
-
+        if($webinfo->link == "")
+            $webinfo->link = $request->input('link');
+        else
+            $webinfo->link = $webinfo->link .';'. $request->input('link');
         if ($webinfo->save()) {
             $data['status'] = 200;
         } else {
@@ -154,6 +156,37 @@ class WebinfoController extends Controller {
             $data['msg'] = "设置失败";
         }
 
+        return $data;
+    }
+    public function delLink(Request $request){
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0) {
+            return redirect('admin/login');
+        }
+
+        $webinfo = About::find(1);
+        $links = explode(';',$webinfo->link);
+        if($request->has('linkname')){
+            $linkname = $request->input('linkname');
+            $newlink = "";
+            foreach ($links as $item){
+                $link  = explode('@',$item);
+                if($link[0] != $linkname){
+                    if($newlink == "")
+                        $newlink = $item;
+                    else
+                        $newlink = $newlink . ';' .$item;
+                }else
+                    continue;
+            }
+            $webinfo->link = $newlink;
+            if ($webinfo->save()) {
+                $data['status'] = 200;
+            } else {
+                $data['status'] = 400;
+                $data['msg'] = "设置失败";
+            }
+        }
         return $data;
     }
 

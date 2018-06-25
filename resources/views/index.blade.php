@@ -9,10 +9,13 @@
     @include('components.headerTab',['title'=>"index"])
 @endsection
 @section('custom-style')
-    {{--<link href="css/index.css" rel='stylesheet' type='text/css' />--}}
+    <link href="{{asset('css/index.css')}}" rel='stylesheet' type='text/css' />
     <style>
         .tempWrap{
             width: 100%;
+        }
+        .infoList li{
+            height: 40px !important;
         }
     </style>
 @endsection
@@ -40,29 +43,43 @@
         </div>
         <div class="bd">
             <div class="box">
-                <a href="/news" class="more">MORE+</a>
-                <ul class="clearfix">
-                    @forelse($data['news'] as $new)
-                        <li>
-                            <a href="/news/detail?nid={{$new->id}}">
-                                @if($new->picture != null)
-                                    <?php
-                                    $pics = explode(';', $new->picture);
-                                    $baseurl = explode('@', $pics[0])[0];
-                                    $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
-                                    $imagepath = explode('@', $pics[0])[1];
-                                    ?>
-                                        <img src="{{$baseurl}}{{$imagepath}}"/>
-                                @else
-                                        <img src="{{asset('images/wechatcode.jpg')}}"/>
-                                @endif
-                                <h4>{{$new->title}}</h4>
-                                <span class="date">{{mb_substr($new->created_at,0,10,'utf-8')}}</span>
-                            </a>
-                        </li>
-                    @empty
-                        <li>暂无新闻</li>
-                    @endforelse
+                <a href="/news" class="more" style="top: -50px;">MORE+</a>
+                    <div class="con" id="list1">
+                        {{--<a href="/news/group-news/" target="_blank" class="more">更多»</a>--}}
+                        @if(count($data['news']) >= 1)
+                            <?php
+                            $pics = explode(';', $data['news'][0]->picture);
+                            $baseurl = explode('@', $pics[0])[0];
+                            $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
+                            $imagepath = explode('@', $pics[0])[1];
+                            ?>
+                            <dl class="clearfix">
+                                <div class="image">
+                                    <a href="/news/detail?nid={{$data['news'][0]->id}}" target="_blank">
+                                        @if($data['news'][0]->picture != null)
+                                            <img src="{{$baseurl}}{{$imagepath}}" alt="">
+                                        @else
+                                            <img src="http://140.143.97.128/storage/newspic/2018-06-14-10-58-07-5b21d9bf06d77news1.jpg" alt="">
+                                        @endif
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <strong><em>{{substr($data['news'][0]->created_at,0,10)}}</em>
+                                        <a href="/news/detail?nid={{$data['news'][0]->id}}" target="_blank" title="">{{$data['news'][0]->title}}</a></strong>
+                                    <p>{{strip_tags($data['news'][0]->content)}}
+                                        <a href="/news/detail?nid={{$data['news'][0]->id}}" target="_blank">[详情]</a></p>
+                                </div>
+                            </dl>
+                        @endif
+                        <ul>
+                            @foreach($data['news'] as $item)
+                                <li>
+                                    <a href="/news/detail?nid={{$item->id}}" target="_blank" title="">{{$item->title}}</a>
+                                    <span>{{mb_substr($item->created_at,0,10,'utf-8')}}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
             </div>
             <div class="box">
                 <a href="/industry" class="more">MORE+</a>
@@ -117,16 +134,13 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="right_box">
-        <!--notice-->
-        <div class="notice">
-            <div class="n_title">
-                <b>最新通知</b>
-                <a href="/news/notes">MORE+</a>
-            </div>
-            <div class="bd">
-                <ul class="infoList">
+        <div class="index-news2">
+            <h2>
+                <a href="/notes" class="tabs current" rel="list11">公示公告</a>
+                <a href="/news/general-news/" class="tabs" rel="list12">对外合作</a>
+            </h2>
+            <div class="con" id="list11" style="display: block;">
+                <ul>
                     @forelse($data['notes'] as $note)
                         <li>
                             <a href="/news/notes/detail?nid={{$note->id}}" target="_blank">{{$note->title}}</a>
@@ -135,6 +149,61 @@
                     @empty
                         <li>
                             <a>暂无公告</a>
+                        </li>
+                    @endforelse
+                </ul>
+                <a href="/news/notes" class="more">更多»</a>
+            </div>
+            <div class="con" id="list12" style="display:none">
+                @if(count($data['out']) >= 1)
+                    <?php
+                    $pics = explode(';', $data['out'][0]->picture);
+                    $baseurl = explode('@', $pics[0])[0];
+                    $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
+                    $imagepath = explode('@', $pics[0])[1];
+                    ?>
+                <dl class="clearfix">
+                    <div class="image">
+                        <a href="/cooperation/out/detail?nid={{$data['out'][0]->id}}" target="_blank">
+                            <img src="{{$baseurl}}{{$imagepath}}" alt=""></a>
+                    </div>
+                    <div class="text">
+                        <strong>
+                            <a href="" target="_blank" title="">{{$data['out'][0]->title}}</a>
+                        </strong>
+                        <span>{{$data['out'][0]->created_at}}</span>
+                    </div>
+                </dl>
+                @endif
+
+                <ul>
+                    @foreach($data['out'] as $item)
+                        <li><a href="/cooperation/out/detail?nid={{$item->id}}" target="_blank" title="">{{$item->title}}</a>
+                            <span>{{mb_substr($item->created_at,0,10,'utf-8')}}</span>
+                        </li>
+                    @endforeach
+                </ul>
+                <a href="/cooperation/out" class="more">更多»</a>
+            </div>
+        </div>
+    </div>
+    <div class="right_box">
+        <!--notice-->
+        <div class="notice">
+            <div class="n_title">
+                <b>科研团队</b>
+                <a href="/technology/team">MORE+</a>
+            </div>
+            <div class="bd">
+                <ul class="infoList">
+                    @forelse($data['techTeam'] as $team)
+                        <li>
+                            <a href="/technology/team/detail?id={{$team->id}}" target="_blank">{{$team->title}}</a>
+                            <span class="date">{{mb_substr($team->created_at,0,10,'utf-8')}}</span>
+                        </li>
+                    @empty
+                        <li>
+                            <a>暂无团队介绍</a>
                         </li>
                     @endforelse
                 </ul>
@@ -157,4 +226,18 @@
     @include('components.footer',['about'=>$data['aboutinfo']])
 @endsection
 @section('custom-script')
+    <script>
+        $(".tempWrap").css("height","280px");
+        $('.tabs').mouseover(function () {
+            $(this).addClass('current');
+            $(this).siblings().removeClass('current');
+            if($(this).attr('rel') == "list11"){
+                $('#list11').show();
+                $('#list12').hide();
+            }else{
+                $('#list11').hide();
+                $('#list12').show();
+            }
+        });
+    </script>
 @endsection

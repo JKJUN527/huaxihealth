@@ -1,6 +1,6 @@
 <div class="header_wrap">
     <div class="header">
-        <a href="/" class="logo"><img src="{{asset('images/logo.jpg')}}" /></a>
+        <a href="/" class="logo"><img src="{{asset('images/logo-head.png')}}" /></a>
         {{--<div class="nav_list">--}}
             {{--<ul id="nav" class="nav clearfix">--}}
                 {{--<li class="nLi" style="display: none;"></li>--}}
