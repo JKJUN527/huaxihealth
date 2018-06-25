@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="X-UA-Compatible" content="IE=edge"/>
-    <meta name="keywords" content="华西健康"/>
-    <meta name="description" content="华西健康"/>
+    <meta name="keywords" content="华西健康,华西精准医学产业技术研究院,成都,华西,精准医学,华西研究院"/>
+    <meta name="description" content="华西精准医学产业技术研究院官网"/>
+    <meta name="baidu-site-verification" content="POJms2hOXE" />
     <title>@yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
     <link href="{{asset('plugins/bootstrap/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css' />
