@@ -20,8 +20,7 @@
     </div>
     <div class="footer-left">
         ©2018&nbsp;成都华西精准医学产业技术研究院有限公司&nbsp;&nbsp;ALL RIGHTS RESERVED.<br>
-        技术支持：Four2Nine
-        <a href="mailto:jkjun0527@foxmail.com" target="_blank" class="linking">jkjun0527@foxmail.com</a>
+        <a href="mailto:jkjun0527@foxmail.com" target="_blank" class="linking">技术支持：Four2Nine</a>
     </div>
     <div class="footer-right">
         <a href="javascript:;" class="links-btn">友情链接</a><span>|</span>

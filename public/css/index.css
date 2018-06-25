@@ -1,3 +1,6 @@
+.bd{
+    margin-bottom: 20px;
+}
 .bd .box .con {
     margin-top: 20px;
     position: relative;
@@ -90,6 +93,7 @@ b, strong {
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
+    color: #444;
 }
 .bd .box .con ul li span {
     font-family: Arial, Helvetica, sans-serif;

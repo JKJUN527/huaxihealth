@@ -215,11 +215,11 @@
         </div>
     </div>
     <div class="clear"></div>
-    <div class="friend_link">
-        <b>友情链接：</b>
-        <a href="http://www.schxjk.com:8899" target="_blank">四川华西健康</a>
-        <a href="http://www.cd120.com/" target="_blank">华西医院官网</a>
-    </div>
+    {{--<div class="friend_link">--}}
+        {{--<b>友情链接：</b>--}}
+        {{--<a href="http://www.schxjk.com:8899" target="_blank">四川华西健康</a>--}}
+        {{--<a href="http://www.cd120.com/" target="_blank">华西医院官网</a>--}}
+    {{--</div>--}}
 </div>
 @endsection
 @section('footer')
