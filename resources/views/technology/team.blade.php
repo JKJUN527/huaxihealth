@@ -26,7 +26,9 @@
                 <div class="con_box">
                     <ul class="items-list">
                         @forelse($data['team'] as $item)
-                            <li><a href="/technology/team/detail?id={{$item->id}}">{{$item->title}}</a><span class="date">{{substr($item->created_at,0,10)}}</span></li>
+                            <li><a href="/technology/team/detail?id={{$item->id}}">
+                                    {{mb_substr($item->title,0,50,'utf-8')}}
+                                </a><span class="date">{{substr($item->created_at,0,10)}}</span></li>
                         @empty
                             <li>暂无团队发布</li>
                         @endforelse

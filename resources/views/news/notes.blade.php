@@ -26,7 +26,9 @@
                 <div class="con_box">
                     <ul class="items-list">
                         @forelse($data['notes'] as $note)
-                            <li><a href="/news/notes/detail?nid={{$note->id}}">{{$note->title}}</a><span class="date">{{substr($note->created_at,0,10)}}</span></li>
+                            <li><a href="/news/notes/detail?nid={{$note->id}}">
+                                    {{mb_substr($note->title,0,50,'utf-8')}}
+                                </a><span class="date">{{substr($note->created_at,0,10)}}</span></li>
                         @empty
                             <li>暂无公告发布</li>
                         @endforelse

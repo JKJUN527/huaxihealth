@@ -73,11 +73,14 @@
                             </dl>
                         @endif
                         <ul>
+                            <?php $i = 0;?>
                             @foreach($data['news'] as $item)
-                                <li>
-                                    <a href="/news/detail?nid={{$item->id}}" target="_blank" title="">{{$item->title}}</a>
-                                    <span>{{mb_substr($item->created_at,0,10,'utf-8')}}</span>
-                                </li>
+                                @if($i++ > 0)
+                                    <li>
+                                        <a href="/news/detail?nid={{$item->id}}" target="_blank" title="">{{$item->title}}</a>
+                                        <span>{{mb_substr($item->created_at,0,10,'utf-8')}}</span>
+                                    </li>
+                                @endif
                             @endforeach
                         </ul>
                     </div>
@@ -87,7 +90,7 @@
                 <ul class="clearfix">
                     @forelse($data['industry'] as $new)
                         <li>
-                            <a href="/news/detail?nid={{$new->id}}">
+                            <a href="/industry/detail?nid={{$new->id}}">
                                 @if($new->picture != null)
                                     <?php
                                     $pics = explode(';', $new->picture);
@@ -113,7 +116,7 @@
                 <ul class="clearfix">
                     @forelse($data['cooperation'] as $new)
                         <li>
-                            <a href="/news/detail?nid={{$new->id}}">
+                            <a href="/cooperation/detail?nid={{$new->id}}">
                                 @if($new->picture != null)
                                     <?php
                                     $pics = explode(';', $new->picture);
@@ -180,12 +183,14 @@
                     </div>
                 </dl>
                 @endif
-
                 <ul>
+                    <?php $i = 0;?>
                     @foreach($data['out'] as $item)
-                        <li><a href="/cooperation/out/detail?nid={{$item->id}}" target="_blank" title="">{{$item->title}}</a>
-                            <span>{{mb_substr($item->created_at,0,10,'utf-8')}}</span>
-                        </li>
+                        @if($i++ > 0)
+                            <li><a href="/cooperation/out/detail?nid={{$item->id}}" target="_blank" title="">{{$item->title}}</a>
+                                <span>{{mb_substr($item->created_at,0,10,'utf-8')}}</span>
+                            </li>
+                        @endif
                     @endforeach
                 </ul>
                 <a href="/cooperation/out" class="more">更多»</a>

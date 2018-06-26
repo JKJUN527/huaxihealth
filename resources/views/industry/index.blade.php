@@ -45,7 +45,7 @@
                                 <div class="ny_dtimrt">
                                     <div class="ny_dtimtt">
                                         <a href="/industry/detail?nid={{$new->id}}">
-                                            {{$new->title}}
+                                            {{mb_substr($new->title,0,32,'utf-8')}}
                                         </a>
                                         <span style="float:right">{{substr($new->created_at,0,10)}}</span>
                                     </div>
