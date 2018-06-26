@@ -76,13 +76,17 @@ ul,li{
 	display: none;
 	width: 128px;
 	text-align: center;
-	left: 0; top: 36px;  position: absolute; background: #267bb1;
+	left: 0; top: 36px;  position: absolute;
+	background: #3f51b5;
 }
 .nav .sub li{ 
-	zoom:1; border-bottom: solid 1px #0c3784; border-top: solid 1px #114ebc;
+	zoom:1;
+	/*border-bottom: solid 1px #0c3784; */
+	/*border-top: solid 1px #114ebc;*/
 }
 .nav .sub a{ 
 	display: block;
+	text-decoration: none;
 	/*padding-left: 32px;*/
 	/*width: 138px; height: 50px; line-height: 50px; */
 	color: #ecf5f9; font-size: 13px;
@@ -91,9 +95,10 @@ ul,li{
 	color: #fecc01;
 }
 .nav .on h3 a{ 
-	background: #267bb1;
-	/*background: #3f51b5; */
+	/*background: #267bb1;*/
+	background: #3f51b5;
 	color: #ecf5f9;
+	text-decoration: none;
 	/*border-top: solid 2px #fdd01c;*/
 }
 

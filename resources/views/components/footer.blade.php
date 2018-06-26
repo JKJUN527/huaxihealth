@@ -4,7 +4,7 @@
         <a href="javascript:;" class="weixin">
             <i class="iconfont icon-wechat"></i>
             <div class="code">
-                <img src="http://localhost/images/wechatcode.jpg">
+                <img src="{{asset('images/wechatcode.jpg')}}">
                 <span>微信公众号</span>
                 <em></em>
             </div>
