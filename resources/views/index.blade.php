@@ -47,20 +47,21 @@
                     <div class="con" id="list1">
                         {{--<a href="/news/group-news/" target="_blank" class="more">更多»</a>--}}
                         @if(count($data['news']) >= 1)
-                            <?php
-                            $pics = explode(';', $data['news'][0]->picture);
-                            $baseurl = explode('@', $pics[0])[0];
-                            $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
-                            $imagepath = explode('@', $pics[0])[1];
-                            ?>
                             <dl class="clearfix">
                                 <div class="image">
                                     <a href="/news/detail?nid={{$data['news'][0]->id}}" target="_blank">
-                                        @if($data['news'][0]->picture != null)
-                                            <img src="{{$baseurl}}{{$imagepath}}" alt="">
-                                        @else
-                                            <img src="http://140.143.97.128/storage/newspic/2018-06-14-10-58-07-5b21d9bf06d77news1.jpg" alt="">
-                                        @endif
+
+                            @if($data['news'][0]->picture != null)
+                                <?php
+                                $pics = explode(';', $data['news'][0]->picture);
+                                $baseurl = explode('@', $pics[0])[0];
+                                $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
+                                $imagepath = explode('@', $pics[0])[1];
+                                ?>
+                                    <img src="{{$baseurl}}{{$imagepath}}" alt="">
+                            @else
+                                    <img src="http://140.143.97.128/storage/newspic/2018-06-14-10-58-07-5b21d9bf06d77news1.jpg" alt="">
+                            @endif
                                     </a>
                                 </div>
                                 <div class="text">
@@ -156,16 +157,20 @@
             </div>
             <div class="con" id="list12" style="display:none">
                 @if(count($data['out']) >= 1)
-                    <?php
-                    $pics = explode(';', $data['out'][0]->picture);
-                    $baseurl = explode('@', $pics[0])[0];
-                    $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
-                    $imagepath = explode('@', $pics[0])[1];
-                    ?>
-                <dl class="clearfix">
-                    <div class="image">
-                        <a href="/cooperation/out/detail?nid={{$data['out'][0]->id}}" target="_blank">
+                    <dl class="clearfix">
+                        <div class="image">
+                            <a href="/cooperation/out/detail?nid={{$data['out'][0]->id}}" target="_blank">
+                    @if($data['out'][0]->picture != null )
+                        <?php
+                        $pics = explode(';', $data['out'][0]->picture);
+                        $baseurl = explode('@', $pics[0])[0];
+                        $baseurl = substr($baseurl, 0, strlen($baseurl) - 1);
+                        $imagepath = explode('@', $pics[0])[1];
+                        ?>
                             <img src="{{$baseurl}}{{$imagepath}}" alt=""></a>
+                    @else
+                            <img src="{{asset('images/testnews.jpg')}}" alt=""></a>
+                    @endif
                     </div>
                     <div class="text">
                         <strong>
