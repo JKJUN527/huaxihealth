@@ -39,7 +39,11 @@
 <div class="content">
     <div class="left_tab">
         <div class="hd">
-            <ul><li class="first">新闻中心</li><li class="second">产业动态</li><li class="third">学术研讨</li></ul>
+            <ul>
+                <li class="first"><i class="iconfont icon-xinwen"></i>新闻中心</li>
+                <li class="second"><i class="iconfont icon-haiduchanye"></i>产业动态</li>
+                <li class="third"><i class="iconfont icon-study"></i>学术研讨</li>
+            </ul>
         </div>
         <div class="bd">
             <div class="box">
@@ -140,8 +144,8 @@
         </div>
         <div class="index-news2">
             <h2>
-                <a href="/notes" class="tabs current" rel="list11">公示公告</a>
-                <a href="/news/general-news/" class="tabs" rel="list12">对外合作</a>
+                <a href="/notes" class="tabs current" rel="list11"><i class="iconfont icon-Notes"></i>公示公告</a>
+                <a href="/news/general-news/" class="tabs" rel="list12"><i class="iconfont icon-fuwutixi"></i>对外合作</a>
             </h2>
             <div class="con" id="list11" style="display: block;">
                 <ul>
@@ -201,7 +205,7 @@
         <!--notice-->
         <div class="notice">
             <div class="n_title">
-                <b>科研团队</b>
+                <b><i class="iconfont icon-team"></i>科研团队</b>
                 <a href="/technology/team">MORE+</a>
             </div>
             <div class="bd">
