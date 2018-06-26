@@ -15,7 +15,7 @@
             width: 100%;
         }
         .infoList li{
-            height: 40px !important;
+            height: 60px !important;
         }
     </style>
 @endsection
@@ -174,7 +174,7 @@
                     </div>
                     <div class="text">
                         <strong>
-                            <a href="" target="_blank" title="">{{$data['out'][0]->title}}</a>
+                            <a href="/cooperation/out/detail?nid={{$data['out'][0]->id}}" target="_blank" title="">{{$data['out'][0]->title}}</a>
                         </strong>
                         <span>{{$data['out'][0]->created_at}}</span>
                     </div>

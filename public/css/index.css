@@ -128,10 +128,11 @@ b, strong {
     width: 50%;
     float: left;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.8rem;
     background-color: #f0f1f2;
     text-decoration: none;
     color: #444;
+    font-weight: bold;
 }
 .index-news2 .con {
     padding: 20px 30px;

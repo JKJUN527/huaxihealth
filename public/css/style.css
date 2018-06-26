@@ -154,7 +154,11 @@ ul,li{
 	width: 785px; float: left;
 }
 .left_tab .hd{ 
-	height: 60px; line-height: 60px; background: #fff; padding: 0 20px 0 10px; border: 1px solid #ebebeb; box-shadow: 1px 1px 2px #ebebeb; position: relative; font-size: 16px;
+	height: 60px; line-height: 60px; background: #fff; padding: 0 20px 0 10px;
+	border: 1px solid #ebebeb; box-shadow: 1px 1px 2px #ebebeb;
+	position: relative;
+	font-size: 1.8rem;
+	font-weight: bold;
 }
 .left_tab .hd ul li{ 
 	float: left; padding: 0 10px; margin-right: 10px; cursor: pointer;
@@ -195,7 +199,7 @@ ul,li{
 	height: 60px; line-height: 60px; border-bottom: solid 1px #ddd; padding: 0 20px;
 }
 .notice .n_title b{
-	float: left; font-weight: normal; font-size: 16px;
+	float: left; font-weight: bold; font-size: 1.8rem;
 }
 .notice .n_title a{
 	float: right; font-size: 13px; color: #818181; line-height: 66px;
