@@ -40,9 +40,9 @@
     <div class="left_tab">
         <div class="hd">
             <ul>
-                <li class="first"><i class="iconfont icon-xinwen"></i>新闻中心</li>
-                <li class="second"><i class="iconfont icon-haiduchanye" style="font-size: 1.8rem"></i>产业动态</li>
-                <li class="third"><i class="iconfont icon-study"></i>学术研讨</li>
+                <li class="first"><i class="iconfont icon-weibiaoti-1"></i>新闻中心</li>
+                <li class="second"><i class="iconfont icon-industry"></i>产业动态</li>
+                <li class="third"><i class="iconfont icon-study1"></i>学术研讨</li>
             </ul>
         </div>
         <div class="bd">
@@ -145,7 +145,7 @@
         <div class="index-news2">
             <h2>
                 <a href="/news/notes" class="tabs current" rel="list11"><i class="iconfont icon-Notes"></i>公示公告</a>
-                <a href="/cooperation/out" class="tabs" rel="list12"><i class="iconfont icon-fuwutixi"></i>对外合作</a>
+                <a href="/cooperation/out" class="tabs" rel="list12"><i class="iconfont icon-coOperation"></i>对外合作</a>
             </h2>
             <div class="con" id="list11" style="display: block;">
                 <ul>
