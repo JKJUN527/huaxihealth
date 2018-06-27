@@ -144,8 +144,8 @@
         </div>
         <div class="index-news2">
             <h2>
-                <a href="/notes" class="tabs current" rel="list11"><i class="iconfont icon-Notes"></i>公示公告</a>
-                <a href="/news/general-news/" class="tabs" rel="list12"><i class="iconfont icon-fuwutixi"></i>对外合作</a>
+                <a href="/news/notes" class="tabs current" rel="list11"><i class="iconfont icon-Notes"></i>公示公告</a>
+                <a href="/cooperation/out" class="tabs" rel="list12"><i class="iconfont icon-fuwutixi"></i>对外合作</a>
             </h2>
             <div class="con" id="list11" style="display: block;">
                 <ul>
