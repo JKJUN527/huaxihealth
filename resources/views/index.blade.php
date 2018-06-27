@@ -41,7 +41,7 @@
         <div class="hd">
             <ul>
                 <li class="first"><i class="iconfont icon-xinwen"></i>新闻中心</li>
-                <li class="second"><i class="iconfont icon-haiduchanye"></i>产业动态</li>
+                <li class="second"><i class="iconfont icon-haiduchanye" style="font-size: 1.8rem"></i>产业动态</li>
                 <li class="third"><i class="iconfont icon-study"></i>学术研讨</li>
             </ul>
         </div>

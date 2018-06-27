@@ -9,11 +9,12 @@
 
 .iconfont {
   font-family:"iconfont" !important;
-  font-size:16px;
+  font-size:2.2rem;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-right: 1rem;
+  color: #3f51b5;
 }
 
 .icon-we:before { content: "\e6a9"; }
