@@ -22,7 +22,7 @@
                     <li><a href="/about/team">团队介绍</a></li>
                     <li><a href="/about/structure">组织架构</a></li>
                     <li><a href="/about/datebook">大事记</a></li>
-                    <li><a href="">发展战略</a></li>
+                    <li><a href="/about/datebook/development">发展战略</a></li>
                 </ul>
             </li>
             <li class="nLi">
