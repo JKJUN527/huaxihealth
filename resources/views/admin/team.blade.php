@@ -253,20 +253,22 @@
 //            } else {
 //                removeError(type, 'type');
 //            }
-            if (file.prop("files")[0] === undefined) {
-                console.log("file is empty");
-                setError(file, 'picture', "请上传头像，像素大于200*200");
-                return;
-            } else {
-                removeError(file, 'picture');
-            }
+//            if (file.prop("files")[0] === undefined) {
+//                console.log("file is empty");
+//                setError(file, 'picture', "请上传头像，像素大于200*200");
+//                return;
+//            } else {
+//                removeError(file, 'picture');
+//            }
 
             var formData = new FormData();
             formData.append("name", name.val());
             formData.append("byname", byname.val());
             formData.append("brief", Content);
 //            formData.append("type", type.val());
-            formData.append('picture', file.prop("files")[0]);
+            if (file.prop("files")[0] != undefined) {
+                formData.append('picture', file.prop("files")[0]);
+            }
 
             $.ajax({
                 url: "/admin/about/team/add",

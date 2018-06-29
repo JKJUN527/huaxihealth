@@ -405,10 +405,10 @@
                 setError(content, 'content', '简介不能为空');
                 return;
             }
-            if(file.val() === ""){
-                swal("","必须上传头像","error");
-                return;
-            }
+//            if(file.val() === ""){
+//                swal("","必须上传头像","error");
+//                return;
+//            }
 
             var formData = new FormData();
             formData.append("name", name.val());
@@ -419,7 +419,9 @@
             formData.append("type", type.val());
 
             formData.append("brief", editor.txt.html());
-            formData.append("pic", $("input[name='pic']").prop("files")[0]);
+            if(file.val() != "") {
+                formData.append("pic", $("input[name='pic']").prop("files")[0]);
+            }
 
             $.ajax({
                 url: "/admin/technology/addExpert",
