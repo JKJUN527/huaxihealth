@@ -104,7 +104,7 @@
                                     ?>
                                     <img src="{{$baseurl}}{{$imagepath}}"/>
                                 @else
-                                    <img src="{{asset('images/wechatcode.jpg')}}"/>
+                                    <img src="{{asset('/images/testnews.jpg')}}"/>
                                 @endif
                                 <h4>{{$new->title}}</h4>
                                 <span class="date">{{mb_substr($new->created_at,0,10,'utf-8')}}</span>
@@ -130,7 +130,7 @@
                                     ?>
                                     <img src="{{$baseurl}}{{$imagepath}}"/>
                                 @else
-                                    <img src="{{asset('images/wechatcode.jpg')}}"/>
+                                    <img src="{{asset('/images/testnews.jpg')}}"/>
                                 @endif
                                 <h4>{{$new->title}}</h4>
                                 <span class="date">{{mb_substr($new->created_at,0,10,'utf-8')}}</span>
