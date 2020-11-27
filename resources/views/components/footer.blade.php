@@ -31,6 +31,8 @@
         {{$about->address}}&nbsp;&nbsp;&nbsp;&nbsp;
         <img src="{{asset('images/beian.png')}}">蜀ICP备18016547号
         <br>
+        <img src="{{asset('images/beian1.png')}}">川公网安备 51012202000796号
+        <br>
         <i class="iconfont icon-tel-copy"></i>
         联系电话：{{$about->tel}}
     </div>
