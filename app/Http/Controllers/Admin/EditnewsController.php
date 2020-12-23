@@ -58,6 +58,9 @@ class EditnewsController extends Controller {
     public function addNewsView() {
         return view('admin.addNews', ['data' => DashboardController::getLoginInfo()]);
     }
+    public function addNotesView(){
+        return view('admin.addNotes', ['data' => DashboardController::getLoginInfo()]);
+    }
 
     //发布新闻以及修改已发布新闻
     //如果传入新闻id，则表示修改新闻，否则新增新闻。
@@ -99,6 +102,54 @@ class EditnewsController extends Controller {
         //保存都数据库
         $new->title = $request->input('title');
         $new->author = $request->input('subtitle');
+        $new->content = $request->input('content');
+        if ($new->save()) {
+            $data['status'] = 200;
+            $data['msg'] = "操作成功";
+            return $data;
+        } else {
+            $data['status'] = 400;
+            $data['msg'] = "操作失败";
+            return $data;
+        }
+    }
+    public function addNotesNew(Request $request) {
+        $data = array();
+        $uid = AdminAuthController::getUid();
+        if ($uid == 0) {
+            return redirect('admin/login');
+        }
+
+        $new = new Notes();//新增公告
+
+        //接收参数
+        $picture = $request->input('pictureIndex');
+        if($picture != ""){
+            $pictures = explode('@', $picture);
+            $picfilepath = "";
+            foreach ($pictures as $Item) {//对每一个照片进行操作。
+
+                $pic = $request->file('pic' . $Item);//取得上传文件信息
+                if ($pic->isValid()) {//判断文件是否上传成功
+                    //取得原文件名
+                    $originalName1 = $pic->getClientOriginalName();
+                    //扩展名
+                    $ext1 = $pic->getClientOriginalExtension();
+                    //mimetype
+                    $type1 = $pic->getClientMimeType();
+                    //临时觉得路径
+                    $realPath = $pic->getRealPath();
+                    //生成文件名
+                    $picname = date('Y-m-d-H-i-s') . '-' . uniqid() . 'news' . $Item . '.' . $ext1;
+
+                    $picfilepath = $picfilepath . $Item . '@' . $picname . ';';
+                    $bool = Storage::disk('newspic')->put($picname, file_get_contents($realPath));
+                }
+            }
+            $new->picture = asset('storage/newspic/' . $picfilepath);
+        }
+        //保存都数据库
+        $new->title = $request->input('title');
         $new->content = $request->input('content');
         if ($new->save()) {
             $data['status'] = 200;
