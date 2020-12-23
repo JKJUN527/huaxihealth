@@ -62,7 +62,23 @@ class NewsController extends Controller {
         if($request->has('nid')){
             $id = $request->input('nid');
             $data['detail'] = Notes::find($id);
-
+            //还原新闻中的图片
+            $images = $data['detail']->picture;
+            if($images !=null){
+                $imageTemp = explode(';',$images);
+                array_pop($imageTemp);
+                $imagesArray = [];
+                foreach ($imageTemp as $item){
+                    $imagesArray[] = explode('@',$item);
+                }
+                $baseUrl = substr($imagesArray[0][0],0,-1);
+                $imagesArray[0][0] = substr($imagesArray[0][0],-1);
+                foreach ($imagesArray as $item){
+                    $imageurl = $baseUrl.$item[1];
+                    $replace = "<div class='news-image'><img src='".$imageurl."'/></div>";
+                    $data['detail']->content = str_replace('[图片'.$item[0].']',$replace,$data['detail']->content);
+                }
+            }
             $data['aboutinfo'] = About::first();
             return view('news.notesDetail',['data'=>$data]);
         }

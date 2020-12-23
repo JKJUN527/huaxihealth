@@ -123,6 +123,13 @@
                         >
                             <a href="/admin/addNews">发布新闻</a>
                         </li>
+                        <li
+                                @if($subtitle === 'addNotes')
+                                class="active"
+                                @endif
+                        >
+                            <a href="/admin/addNotes">发布公告</a>
+                        </li>
                     </ul>
                 </li>
                 <li
