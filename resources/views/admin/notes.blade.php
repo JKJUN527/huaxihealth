@@ -41,7 +41,7 @@
                         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                             for="demo-menu-lower-right">
                             <li class="mdl-menu__item">
-                                <a data-toggle="modal" data-target="#addRegionModal1">新增公告</a>
+                                <a data-toggle="modal" data-target="#addRegionModal1">快速新增公告</a>
                             </li>
                         </ul>
                     </div>

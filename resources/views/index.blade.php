@@ -37,7 +37,8 @@
 </div>
 <!--content-->
 <div class="content">
-    <div class="left_tab">
+    <div class="row">
+    <div class="left_tab col-xs-8">
         <div class="hd">
             <ul>
                 <li class="first"><i class="iconfont icon-weibiaoti-1"></i>新闻中心</li>
@@ -201,7 +202,7 @@
             </div>
         </div>
     </div>
-    <div class="right_box">
+    <div class="right_box col-xs-4">
         <!--notice-->
         <div class="notice">
             <div class="n_title">
@@ -227,6 +228,7 @@
         <div class="code">
             <img src="{{asset('images/wechatcode.jpg')}}" />
         </div>
+    </div>
     </div>
     <div class="clear"></div>
     {{--<div class="friend_link">--}}
