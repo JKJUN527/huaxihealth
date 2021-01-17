@@ -29,9 +29,9 @@
         <br>
         <i class="iconfont icon-adress"></i>
         {{$about->address}}&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{asset('images/beian.png')}}">蜀ICP备18016547号
+        <img src="{{asset('images/beian.png')}}"><a href="https://beian.miit.gov.cn/">蜀ICP备18016547号-1</a>
         <br>
-        <img src="{{asset('images/beian1.png')}}">川公网安备 51012202000796号
+        <img src="{{asset('images/beian1.png')}}"> <a href="http://www.beian.gov.cn/">川公网安备 51012202000796号</a>
         <br>
         <i class="iconfont icon-tel-copy"></i>
         联系电话：{{$about->tel}}
