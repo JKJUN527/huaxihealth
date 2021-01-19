@@ -224,10 +224,10 @@ ul,li{
 }
 .code{
 	/*width: 256px; height: 256px; */
-	padding: 12px; background: #fff; border: 1px solid #ebebeb; box-shadow: 1px 1px 2px #ebebeb;
+	padding: 12px; background: #fff; border: 1px solid #ebebeb; box-shadow: 1px 1px 2px #ebebeb;text-align: center;
 }
 .code img{
-	width: 257px; height: 257px; margin: 0 auto;    text-align: center;
+	width: 257px; height: 257px; margin: 0 auto;
 }
 /*---------friend_link---------*/
 .friend_link{
