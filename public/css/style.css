@@ -148,8 +148,8 @@ ul,li{
 
 /*---------tab切换---------*/
 .content{
-	/*width: 1100px; */
-	width: 100%;
+	width: 1100px;
+	/*width: 100%;*/
 	margin: 38px auto;
 }
 .left_tab{ 
@@ -195,7 +195,8 @@ ul,li{
 }
 /*---------news滚动---------*/
 .notice{
-	width:280px; height: 362px; background: #fff; border: 1px solid #ebebeb; box-shadow: 1px 1px 2px #ebebeb; margin-bottom: 20px; overflow: hidden; position: relative;
+	/*width:280px; */
+	height: 362px; background: #fff; border: 1px solid #ebebeb; box-shadow: 1px 1px 2px #ebebeb; margin-bottom: 20px; overflow: hidden; position: relative;
 }
 .notice .n_title{
 	height: 60px; line-height: 60px; border-bottom: solid 1px #ddd; padding: 0 20px;
@@ -226,7 +227,7 @@ ul,li{
 	padding: 12px; background: #fff; border: 1px solid #ebebeb; box-shadow: 1px 1px 2px #ebebeb;
 }
 .code img{
-	width: 257px; height: 257px; margin: 0 auto;
+	width: 257px; height: 257px; margin: 0 auto;    text-align: center;
 }
 /*---------friend_link---------*/
 .friend_link{
