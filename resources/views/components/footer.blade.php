@@ -25,7 +25,7 @@
     <div class="footer-right">
         <a href="javascript:;" class="links-btn">友情链接</a><span>|</span>
         {{--<a href="http://www.cnzz.com/stat/website.php?web_id=1271872433" target="_blank">站长统计</a>--}}
-        <a href="/contact">联系我们</a>
+        <a href="/contact/form">联系我们</a>
         <br>
         <i class="iconfont icon-adress"></i>
         {{$about->address}}&nbsp;&nbsp;&nbsp;&nbsp;
